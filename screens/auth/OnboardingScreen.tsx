@@ -1,7 +1,6 @@
 import { Button } from "@/components/common/Button";
 import { ScreenContainer } from "@/components/common/ScreenContainer";
-import { colors } from "@/theme/colors";
-import { Ionicons } from "@expo/vector-icons";
+import { Image } from "expo-image";
 import React from "react";
 import { Text, View } from "react-native";
 import { styles } from "./OnboardingScreen.styles";
@@ -16,25 +15,68 @@ export function OnboardingScreen({
   onNavigateToLogin,
 }: OnboardingScreenProps) {
   return (
-    <ScreenContainer>
+    <ScreenContainer scrollable={false} backgroundColor="#FFFFFF">
       <View style={styles.container}>
         <View style={styles.header}>
+          <Image
+            source={require("@/assets/illustrations/abstract-background-shape.svg")}
+            style={styles.backgroundArch}
+            contentFit="cover"
+          />
+
           <View style={styles.logoBadge}>
-            <Ionicons name="book-outline" size={30} color={colors.primary} />
+            <Image
+              source={require("@/assets/icons/logo_book.svg")}
+              style={styles.logoIcon}
+              contentFit="contain"
+            />
           </View>
           <Text style={styles.brandName}>SmartLearn</Text>
         </View>
 
         <View style={styles.cardSection}>
-          <View style={styles.promoCard}>
+          <View style={styles.pinkCard}>
+            <Text style={styles.pinkCardText}>Instant Feedback</Text>
+          </View>
+
+          <Image
+            source={require("@/assets/icons/logo-bulb.svg")}
+            style={styles.bulbIcon}
+            contentFit="contain"
+          />
+
+          <View style={styles.limeCard}>
+            <Text style={styles.limeCardText}>Fun Games & Activities</Text>
+          </View>
+
+          <View style={styles.blueCard}>
+            <Image
+              source={require("@/assets/icons/logo-star.svg")}
+              style={styles.starIcon}
+              contentFit="contain"
+            />
+
             <Text style={styles.cardTitle}>Personalized</Text>
             <View style={styles.badgeTextContainer}>
               <Text style={styles.badgeText}>Learning</Text>
             </View>
+
             <Text style={styles.cardSubtitle}>
-              Lessons adapt to your child&apos;s pace, focusing on what they
-              need most.
+              Lessons adapt to your childs pace, focusing on what they need
+              most.
             </Text>
+
+            <View style={styles.dotsContainer}>
+              <View style={styles.dotActive} />
+              <View style={styles.dotInactive} />
+              <View style={styles.dotInactive} />
+            </View>
+
+            <Image
+              source={require("@/assets/illustrations/personalized-learning-illustration.svg")}
+              style={styles.illustration}
+              contentFit="contain"
+            />
           </View>
         </View>
 
