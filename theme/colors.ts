@@ -24,7 +24,6 @@ export const colors = {
     amberDark: "#9C6800",
   },
 
-  // Functional & Semantic
   success: "#2E7D32",
   warning: "#F59E0B",
   error: "#E53935",

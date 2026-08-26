@@ -5,6 +5,7 @@ import { HomeHeader } from "@/components/home/HomeHeader";
 import { LessonCard } from "@/components/home/LessonCard";
 import { useAuth } from "@/hooks/useAuth";
 import { useHomeData } from "@/hooks/useHomeData";
+import { useRouter } from "expo-router";
 import React from "react";
 import { ScrollView, Text } from "react-native";
 import { styles } from "./HomeScreen.styles";
@@ -13,6 +14,7 @@ export function HomeScreen() {
   const { user } = useAuth();
   const { categories, activeCategory, setActiveCategory, lessons } =
     useHomeData();
+  const router = useRouter();
 
   return (
     <ScreenContainer scrollable backgroundColor="#F8F9FC">
@@ -37,7 +39,7 @@ export function HomeScreen() {
           <LessonCard
             key={lesson.id}
             lesson={lesson}
-            onPress={() => console.log(`Navigate to learn/${lesson.id}`)}
+            onPress={() => router.push(`/learn/${lesson.id}`)}
           />
         ))}
       </ScrollView>

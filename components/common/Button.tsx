@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.semiBold,
   },
 
-  // Sizes
   size_sm: {
     height: 38,
     paddingHorizontal: spacing.md,
@@ -131,7 +130,6 @@ const styles = StyleSheet.create({
     fontSize: typography.fontSize.lg,
   },
 
-  // Variants
   primary: {
     backgroundColor: colors.primary,
   },
@@ -175,7 +173,6 @@ const styles = StyleSheet.create({
     color: colors.primary,
   },
 
-  // Disabled State
   disabled: {
     backgroundColor: colors.surfaceSubtle,
     borderColor: "transparent",
