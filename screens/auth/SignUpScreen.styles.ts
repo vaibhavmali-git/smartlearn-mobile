@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: typography.fontSize.display,
     fontWeight: typography.fontWeight.heavy,
+    fontFamily: typography.fonts.heavy,
     color: colors.text.primary,
   },
   subtitle: {
@@ -53,6 +54,7 @@ export const styles = StyleSheet.create({
   footerAction: {
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.bold,
+    fontFamily: typography.fonts.bold,
     color: colors.primary,
     marginLeft: spacing.xxs,
   },

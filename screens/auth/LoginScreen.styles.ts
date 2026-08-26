@@ -26,6 +26,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: typography.fontSize.display,
     fontWeight: typography.fontWeight.heavy,
+    fontFamily: typography.fonts.heavy,
     color: colors.text.primary,
   },
   form: {
@@ -45,6 +46,7 @@ export const styles = StyleSheet.create({
   link: {
     color: colors.text.primary,
     fontWeight: typography.fontWeight.bold,
+    fontFamily: typography.fonts.bold,
   },
   footer: {
     flexDirection: "row",
@@ -59,6 +61,7 @@ export const styles = StyleSheet.create({
   footerAction: {
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.bold,
+    fontFamily: typography.fonts.bold,
     color: colors.primary,
     marginLeft: spacing.xxs,
   },

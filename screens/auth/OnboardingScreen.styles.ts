@@ -54,6 +54,7 @@ export const styles = StyleSheet.create({
   brandName: {
     fontSize: typography.fontSize.xxl,
     fontWeight: typography.fontWeight.heavy,
+    fontFamily: typography.fonts.heavy,
     color: colors.primary,
     letterSpacing: -0.3,
     zIndex: 2,
@@ -85,6 +86,7 @@ export const styles = StyleSheet.create({
   pinkCardText: {
     fontSize: typography.fontSize.md,
     fontWeight: typography.fontWeight.medium,
+    fontFamily: typography.fonts.medium,
     color: colors.primary,
   },
 
@@ -140,6 +142,7 @@ export const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 32,
     fontWeight: typography.fontWeight.heavy,
+    fontFamily: typography.fonts.heavy,
     color: colors.primary,
     letterSpacing: -0.5,
     marginBottom: 4,
@@ -155,6 +158,7 @@ export const styles = StyleSheet.create({
   badgeText: {
     color: "#FFFFFF",
     fontWeight: typography.fontWeight.bold,
+    fontFamily: typography.fonts.bold,
     fontSize: typography.fontSize.xl,
     letterSpacing: -0.2,
   },
@@ -164,6 +168,7 @@ export const styles = StyleSheet.create({
     lineHeight: 22,
     width: "60%",
     fontWeight: typography.fontWeight.regular,
+    fontFamily: typography.fonts.regular,
   },
 
   dotsContainer: {

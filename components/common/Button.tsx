@@ -3,6 +3,7 @@ import { radii } from "@/theme/radii";
 import { spacing } from "@/theme/spacing";
 import { typography } from "@/theme/typography";
 import React from "react";
+
 import {
     ActivityIndicator,
     Pressable,
@@ -103,6 +104,7 @@ const styles = StyleSheet.create({
     marginLeft: spacing.xs,
   },
   text: {
+    fontFamily: typography.fonts.semiBold,
     fontWeight: typography.fontWeight.semiBold,
   },
 

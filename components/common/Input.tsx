@@ -83,6 +83,7 @@ const styles = StyleSheet.create({
     fontWeight: typography.fontWeight.medium,
     color: colors.text.primary,
     marginBottom: spacing.xs,
+    fontFamily: typography.fonts.medium,
   },
   inputContainer: {
     flexDirection: "row",
@@ -104,6 +105,7 @@ const styles = StyleSheet.create({
     flex: 1,
     height: "100%",
     fontSize: typography.fontSize.md,
+    fontFamily: typography.fonts.regular,
     color: colors.text.primary,
     paddingVertical: 0,
   },

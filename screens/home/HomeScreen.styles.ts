@@ -43,4 +43,14 @@ export const styles = StyleSheet.create({
   logoutButton: {
     width: "100%",
   },
+
+  sectionTitle: {
+    fontSize: typography.fontSize.xl,
+    fontFamily: typography.fonts.bold,
+    color: colors.primary,
+    marginBottom: spacing.md,
+  },
+  carousel: {
+    paddingRight: spacing.xl,
+  },
 });

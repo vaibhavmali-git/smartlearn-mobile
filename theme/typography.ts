@@ -1,6 +1,13 @@
 import { TextStyle } from "react-native";
 
 export const typography = {
+  fonts: {
+    regular: "Inter_400Regular",
+    medium: "Inter_500Medium",
+    semiBold: "Inter_600SemiBold",
+    bold: "Inter_700Bold",
+    heavy: "Inter_900Black",
+  },
   fontSize: {
     xs: 11,
     sm: 13,

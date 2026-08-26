@@ -1,39 +1,46 @@
-import { Button } from "@/components/common/Button";
 import { ScreenContainer } from "@/components/common/ScreenContainer";
+import { AIBuddyCard } from "@/components/home/AIBuddyCard";
+import { CategoryFilter } from "@/components/home/CategoryFilter";
+import { HomeHeader } from "@/components/home/HomeHeader";
+import { LessonCard } from "@/components/home/LessonCard";
 import { useAuth } from "@/hooks/useAuth";
-import { colors } from "@/theme/colors";
-import { Ionicons } from "@expo/vector-icons";
+import { useHomeData } from "@/hooks/useHomeData";
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView, Text } from "react-native";
 import { styles } from "./HomeScreen.styles";
 
 export function HomeScreen() {
-  const { user, logout } = useAuth();
+  const { user } = useAuth();
+  const { categories, activeCategory, setActiveCategory, lessons } =
+    useHomeData();
 
   return (
-    <ScreenContainer>
-      <View style={styles.container}>
-        <View style={styles.card}>
-          <View style={styles.badge}>
-            <Ionicons
-              name="checkmark-done-circle"
-              size={36}
-              color={colors.pastel.limeDark}
-            />
-          </View>
-          <Text style={styles.greeting}>
-            Hello, {user?.name || "Explorer"}!
-          </Text>
-          <Text style={styles.sessionInfo}>Active Session: {user?.email}</Text>
+    <ScreenContainer scrollable backgroundColor="#F8F9FC">
+      <HomeHeader userName={user?.name || "Explorer"} />
 
-          <Button
-            title="Log out"
-            variant="outline"
-            onPress={logout}
-            style={styles.logoutButton}
+      <AIBuddyCard />
+
+      <Text style={styles.sectionTitle}>Let&apos;s learn</Text>
+
+      <CategoryFilter
+        categories={categories}
+        activeCategory={activeCategory}
+        onSelectCategory={setActiveCategory}
+      />
+
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.carousel}
+      >
+        {lessons.map((lesson) => (
+          <LessonCard
+            key={lesson.id}
+            lesson={lesson}
+            onPress={() => console.log(`Navigate to learn/${lesson.id}`)}
           />
-        </View>
-      </View>
+        ))}
+      </ScrollView>
     </ScreenContainer>
   );
 }
