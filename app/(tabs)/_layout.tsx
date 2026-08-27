@@ -27,7 +27,6 @@ export default function TabsLayout() {
           ),
         }}
       />
-      {/* AI Coach Tab */}
       <Tabs.Screen
         name="ai"
         options={{
@@ -43,6 +42,15 @@ export default function TabsLayout() {
           title: "Analytics",
           tabBarIcon: ({ color }) => (
             <Ionicons name="bar-chart" size={24} color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color }) => (
+            <Ionicons name="person" size={24} color={color} />
           ),
         }}
       />

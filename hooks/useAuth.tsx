@@ -11,10 +11,10 @@ interface AuthContextType extends AuthState {
   login: (credentials: LoginCredentials) => Promise<void>;
   signUp: (credentials: SignUpCredentials) => Promise<void>;
   logout: () => Promise<void>;
+  updateUser: (updates: Partial<User>) => Promise<void>;
 }
 
 const STORAGE_KEY = "@smartlearn_session_user";
-
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -25,16 +25,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     async function loadStoredSession() {
       try {
         const storedUser = await AsyncStorage.getItem(STORAGE_KEY);
-        if (storedUser) {
-          setUser(JSON.parse(storedUser));
-        }
+        if (storedUser) setUser(JSON.parse(storedUser));
       } catch (error) {
         console.error("Failed to load local auth session:", error);
       } finally {
         setIsLoading(false);
       }
     }
-
     loadStoredSession();
   }, []);
 
@@ -44,7 +41,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       name: credentials.email.split("@")[0] || "Max",
       email: credentials.email.trim().toLowerCase(),
     };
-
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(mockUser));
     setUser(mockUser);
   };
@@ -55,9 +51,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       name: credentials.name.trim(),
       email: credentials.email.trim().toLowerCase(),
     };
-
     await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(mockUser));
     setUser(mockUser);
+  };
+
+  const updateUser = async (updates: Partial<User>) => {
+    if (!user) return;
+    const updatedUser = { ...user, ...updates };
+    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(updatedUser));
+    setUser(updatedUser);
   };
 
   const logout = async () => {
@@ -74,6 +76,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         login,
         signUp,
         logout,
+        updateUser,
       }}
     >
       {children}
@@ -83,8 +86,6 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
 export function useAuth(): AuthContextType {
   const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error("useAuth must be used within an AuthProvider");
-  }
+  if (!context) throw new Error("useAuth must be used within an AuthProvider");
   return context;
 }
