@@ -18,7 +18,7 @@ export function AnalyticsScreen() {
   } = useAnalytics();
 
   return (
-    <ScreenContainer scrollable backgroundColor="#FFFFFF">
+    <ScreenContainer scrollable hasTabBar backgroundColor="#FFFFFF">
       <View style={styles.header}>
         <Text style={styles.title}>Analytics</Text>
         <View style={styles.bellBadge}>

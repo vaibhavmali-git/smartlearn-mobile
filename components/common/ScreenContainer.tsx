@@ -26,6 +26,7 @@ export interface ScreenContainerProps {
   contentContainerStyle?: StyleProp<ViewStyle>;
   statusBarStyle?: "light-content" | "dark-content";
   keyboardVerticalOffset?: number;
+  hasTabBar?: boolean;
 }
 
 export function ScreenContainer({
@@ -36,8 +37,12 @@ export function ScreenContainer({
   contentContainerStyle,
   statusBarStyle = "dark-content",
   keyboardVerticalOffset = Platform.OS === "ios" ? 0 : 0,
+  hasTabBar = false,
 }: ScreenContainerProps) {
   const insets = useSafeAreaInsets();
+
+  const baseBottomPadding = insets.bottom > 0 ? insets.bottom : spacing.md;
+  const bottomPadding = hasTabBar ? baseBottomPadding + 90 : baseBottomPadding;
 
   return (
     <SafeAreaView
@@ -60,14 +65,12 @@ export function ScreenContainer({
               style={styles.scroll}
               contentContainerStyle={[
                 styles.scrollContent,
-                {
-                  paddingBottom: insets.bottom > 0 ? insets.bottom : spacing.md,
-                },
+                { paddingBottom: bottomPadding },
                 contentContainerStyle,
               ]}
               showsVerticalScrollIndicator={false}
               keyboardShouldPersistTaps="handled"
-              bounces={false}
+              bounces={Platform.OS === "ios"}
             >
               {children}
             </ScrollView>
@@ -75,9 +78,7 @@ export function ScreenContainer({
             <View
               style={[
                 styles.staticContent,
-                {
-                  paddingBottom: insets.bottom > 0 ? insets.bottom : spacing.md,
-                },
+                { paddingBottom: bottomPadding },
                 contentContainerStyle,
               ]}
             >

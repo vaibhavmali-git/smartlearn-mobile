@@ -27,7 +27,7 @@ export function ProfileScreen() {
   };
 
   return (
-    <ScreenContainer scrollable backgroundColor="#FFFFFF">
+    <ScreenContainer scrollable hasTabBar backgroundColor="#FFFFFF">
       <View style={styles.header}>
         <Text style={styles.title}>Profile</Text>
       </View>

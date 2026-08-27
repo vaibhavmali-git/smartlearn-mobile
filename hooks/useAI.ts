@@ -14,7 +14,6 @@ export function useAI() {
 
     setTimeout(() => {
       setIsTyping(false);
-      console.log(`Mock AI processed: ${query}`);
     }, 1500);
   };
 

@@ -1,5 +1,4 @@
 import { AICoachCard } from "@/components/ai/AICoachCard";
-import { AIInput } from "@/components/ai/AIInput";
 import { RecommendationCard } from "@/components/ai/RecommendationCard";
 import { ScreenContainer } from "@/components/common/ScreenContainer";
 import { useAI } from "@/hooks/useAI";
@@ -12,7 +11,7 @@ export function AICoachScreen() {
     useAI();
 
   return (
-    <ScreenContainer scrollable={false} backgroundColor="#F8F9FC">
+    <ScreenContainer scrollable={false} hasTabBar backgroundColor="#F8F9FC">
       <ScrollView
         showsVerticalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
@@ -34,13 +33,6 @@ export function AICoachScreen() {
           />
         ))}
       </ScrollView>
-
-      <AIInput
-        value={inputText}
-        onChangeText={setInputText}
-        onSend={handleSend}
-        isTyping={isTyping}
-      />
     </ScreenContainer>
   );
 }
