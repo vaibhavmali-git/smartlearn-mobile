@@ -1,4 +1,4 @@
-import { SignUpScreen } from "@/screens/auth/SignUpScreen";
+import { SignUpScreen } from "@/screens/auth/SignUpScreen/SignUpScreen";
 import { useRouter } from "expo-router";
 
 export default function SignUpRoute() {

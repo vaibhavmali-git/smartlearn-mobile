@@ -2,7 +2,7 @@ import { StreakData } from "@/data/analytics";
 import { Image } from "expo-image";
 import React from "react";
 import { Text, View } from "react-native";
-import { styles } from "./StreakCard.styles";
+import { styles } from "../StreakCard/StreakCard.styles";
 
 const DAYS = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 

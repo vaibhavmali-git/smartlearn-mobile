@@ -1,5 +1,5 @@
-import { AICoachCard } from "@/components/ai/AICoachCard";
-import { RecommendationCard } from "@/components/ai/RecommendationCard";
+import { AICoachCard } from "@/components/ai/AICoachCard/AICoachCard";
+import { RecommendationCard } from "@/components/ai/RecommendationCard/RecommendationCard";
 import { ScreenContainer } from "@/components/common/ScreenContainer";
 import { useAI } from "@/hooks/useAI";
 import React from "react";
@@ -7,8 +7,7 @@ import { ScrollView, Text, View } from "react-native";
 import { styles } from "./AICoachScreen.styles";
 
 export function AICoachScreen() {
-  const { recommendations, inputText, setInputText, handleSend, isTyping } =
-    useAI();
+  const { recommendations } = useAI();
 
   return (
     <ScreenContainer scrollable={false} hasTabBar backgroundColor="#F8F9FC">

@@ -1,8 +1,8 @@
 import { Button } from "@/components/common/Button";
 import { Input } from "@/components/common/Input";
 import { ScreenContainer } from "@/components/common/ScreenContainer";
-import { ProfileHeader } from "@/components/profile/ProfileHeader";
-import { SettingRow } from "@/components/profile/SettingRow";
+import { ProfileHeader } from "@/components/profile/ProfileHeader/ProfileHeader";
+import { SettingRow } from "@/components/profile/SettingRow/SettingRow";
 import { useAuth } from "@/hooks/useAuth";
 import React, { useState } from "react";
 import { Modal, Text, View } from "react-native";

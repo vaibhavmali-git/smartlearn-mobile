@@ -4,7 +4,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
-import { styles } from "./HomeHeader.styles";
+import { styles } from "../HomeHeader/HomeHeader.styles";
 
 interface HomeHeaderProps {
   userName: string;

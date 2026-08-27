@@ -1,8 +1,8 @@
 import { ScreenContainer } from "@/components/common/ScreenContainer";
-import { AIBuddyCard } from "@/components/home/AIBuddyCard";
-import { CategoryFilter } from "@/components/home/CategoryFilter";
-import { HomeHeader } from "@/components/home/HomeHeader";
-import { LessonCard } from "@/components/home/LessonCard";
+import { AIBuddyCard } from "@/components/home/AIBuddyCard/AIBuddyCard";
+import { CategoryFilter } from "@/components/home/CategoryFilter/CategoryFilter";
+import { HomeHeader } from "@/components/home/HomeHeader/HomeHeader";
+import { LessonCard } from "@/components/home/LessonCard/LessonCard";
 import { useAuth } from "@/hooks/useAuth";
 import { useHomeData } from "@/hooks/useHomeData";
 import { useRouter } from "expo-router";

@@ -1,4 +1,4 @@
-import { OnboardingScreen } from "@/screens/auth/OnboardingScreen";
+import { OnboardingScreen } from "@/screens/auth/OnboardingScreen/OnboardingScreen";
 import { useRouter } from "expo-router";
 
 export default function OnboardingRoute() {

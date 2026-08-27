@@ -1,7 +1,7 @@
 import { Button } from "@/components/common/Button";
-import { LearnHeader } from "@/components/learn/LearnHeader";
-import { LearningProgressCard } from "@/components/learn/LearningProgressCard";
-import { LessonItem } from "@/components/learn/LessonItem";
+import { LearnHeader } from "@/components/learn/LearnHeader/LearnHeader";
+import { LearningProgressCard } from "@/components/learn/LearningProgressCard/LearningProgressCard";
+import { LessonItem } from "@/components/learn/LessonItem/LessonItem";
 import { useLessonProgress } from "@/hooks/useLessonProgress";
 import { colors } from "@/theme";
 import { useRouter } from "expo-router";

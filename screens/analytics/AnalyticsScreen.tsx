@@ -1,5 +1,5 @@
-import { SkillProgressCard } from "@/components/analytics/SkillProgressCard";
-import { StreakCard } from "@/components/analytics/StreakCard";
+import { SkillProgressCard } from "@/components/analytics/SkillProgressCard/SkillProgressCard";
+import { StreakCard } from "@/components/analytics/StreakCard/StreakCard";
 import { ScreenContainer } from "@/components/common/ScreenContainer";
 import { useAnalytics } from "@/hooks/useAnalytics";
 import { colors } from "@/theme";
