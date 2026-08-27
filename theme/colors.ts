@@ -1,5 +1,5 @@
 export const colors = {
-  primary: "#161B33",
+  primary: "#1C274C",
   primaryLight: "#2C3459",
   onPrimary: "#FFFFFF",
 

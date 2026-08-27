@@ -17,7 +17,7 @@ export function HomeScreen() {
   const router = useRouter();
 
   return (
-    <ScreenContainer scrollable hasTabBar backgroundColor="#F8F9FC">
+    <ScreenContainer scrollable hasTabBar>
       <HomeHeader userName={user?.name || "Explorer"} />
 
       <AIBuddyCard />
