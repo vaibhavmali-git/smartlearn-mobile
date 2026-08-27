@@ -50,7 +50,7 @@ export function Input({
         {leftIcon ? <View style={styles.iconContainer}>{leftIcon}</View> : null}
 
         <TextInput
-          placeholderTextColor={colors.text.muted}
+          placeholderTextColor="#708892"
           style={[styles.input, inputStyle]}
           onFocus={(e) => {
             setIsFocused(true);
@@ -78,6 +78,7 @@ const styles = StyleSheet.create({
     width: "100%",
     marginBottom: spacing.md,
   },
+
   label: {
     fontSize: typography.fontSize.sm,
     fontWeight: typography.fontWeight.medium,
@@ -85,35 +86,43 @@ const styles = StyleSheet.create({
     marginBottom: spacing.xs,
     fontFamily: typography.fonts.medium,
   },
+
   inputContainer: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: colors.surface,
-    borderWidth: 1.5,
-    borderColor: colors.border.light,
+    backgroundColor: "#FFFFFF",
+    borderWidth: 1,
+    borderColor: "#C9D1D5",
     borderRadius: radii.xl,
     paddingHorizontal: spacing.md,
     height: 56,
   },
+
   focused: {
-    borderColor: colors.border.focus,
+    borderColor: colors.primary,
+    borderWidth: 1.5,
   },
+
   errorInput: {
     borderColor: colors.error,
+    borderWidth: 1.5,
   },
+
   input: {
     flex: 1,
     height: "100%",
     fontSize: typography.fontSize.md,
     fontFamily: typography.fonts.regular,
-    color: colors.text.primary,
+    color: "#010000",
     paddingVertical: 0,
   },
+
   iconContainer: {
     justifyContent: "center",
     alignItems: "center",
     marginHorizontal: spacing.xs,
   },
+
   errorText: {
     fontSize: typography.fontSize.xs,
     color: colors.error,

@@ -1,4 +1,3 @@
-import { colors } from "@/theme/colors";
 import { radii } from "@/theme/radii";
 import { spacing } from "@/theme/spacing";
 import { typography } from "@/theme/typography";
@@ -7,55 +6,71 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    justifyContent: "center",
-    paddingVertical: spacing.xl,
+    backgroundColor: "#FFFFFF",
+    paddingTop: spacing.md,
+    paddingBottom: spacing.md,
   },
-  header: {
-    alignItems: "center",
-    marginBottom: spacing.xl,
-  },
-  iconBadge: {
-    width: 68,
-    height: 68,
+
+  backButton: {
+    width: 48,
+    height: 48,
     borderRadius: radii.full,
-    backgroundColor: colors.pastel.limeLight,
+    backgroundColor: "#F1F1F190",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: spacing.md,
+    marginBottom: 36,
   },
+
+  content: {
+    width: "100%",
+  },
+
+  header: {
+    marginBottom: 40,
+  },
+
   title: {
-    fontSize: typography.fontSize.display,
-    fontWeight: typography.fontWeight.heavy,
-    fontFamily: typography.fonts.heavy,
-    color: colors.text.primary,
+    fontSize: 26,
+    fontFamily: typography.fonts.medium,
+    letterSpacing: -0.6,
+    marginBottom: 10,
   },
+
   subtitle: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.secondary,
-    marginTop: spacing.xxs,
+    fontSize: 15,
+    fontFamily: typography.fonts.regular,
+    lineHeight: 26,
   },
+
   form: {
     width: "100%",
-    marginBottom: spacing.lg,
   },
+
+  field: {
+    width: "100%",
+  },
+
   submitButton: {
-    marginTop: spacing.sm,
+    marginTop: 24,
   },
+
   footer: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: spacing.lg,
+    marginTop: "auto",
+    paddingTop: 40,
   },
+
   footerText: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.secondary,
+    fontSize: 15,
+    fontFamily: typography.fonts.regular,
+    color: "#708892",
   },
+
   footerAction: {
-    fontSize: typography.fontSize.sm,
-    fontWeight: typography.fontWeight.bold,
-    fontFamily: typography.fonts.bold,
-    color: colors.primary,
-    marginLeft: spacing.xxs,
+    fontSize: 15,
+    fontFamily: typography.fonts.medium,
+    marginLeft: 4,
   },
 });

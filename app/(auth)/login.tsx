@@ -5,6 +5,9 @@ export default function LoginRoute() {
   const router = useRouter();
 
   return (
-    <LoginScreen onNavigateToSignUp={() => router.push("/(auth)/signup")} />
+    <LoginScreen
+      onNavigateToSignUp={() => router.push("/(auth)/signup")}
+      onNavigateBack={() => router.replace("/(auth)")}
+    />
   );
 }

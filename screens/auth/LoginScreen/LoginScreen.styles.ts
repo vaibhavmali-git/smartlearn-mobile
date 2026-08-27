@@ -1,4 +1,3 @@
-import { colors } from "@/theme/colors";
 import { radii } from "@/theme/radii";
 import { spacing } from "@/theme/spacing";
 import { typography } from "@/theme/typography";
@@ -7,62 +6,78 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
-    justifyContent: "center",
-    paddingVertical: spacing.xl,
+    backgroundColor: "#FFFFFF",
+    paddingTop: spacing.md,
+    paddingBottom: spacing.md,
   },
-  header: {
-    alignItems: "center",
-    marginBottom: spacing.xxl,
-  },
-  iconBadge: {
-    width: 68,
-    height: 68,
+
+  backButton: {
+    width: 48,
+    height: 48,
     borderRadius: radii.full,
-    backgroundColor: colors.pastel.lavenderLight,
+    backgroundColor: "#F1F1F190",
     alignItems: "center",
     justifyContent: "center",
-    marginBottom: spacing.lg,
+    marginBottom: 36,
   },
+
+  content: {
+    width: "100%",
+  },
+
+  header: {
+    marginBottom: 40,
+  },
+
   title: {
-    fontSize: typography.fontSize.display,
-    fontWeight: typography.fontWeight.heavy,
-    fontFamily: typography.fonts.heavy,
-    color: colors.text.primary,
+    fontSize: 26,
+    fontFamily: typography.fonts.medium,
+    letterSpacing: -0.6,
+    marginBottom: 10,
   },
+
+  subtitle: {
+    fontSize: 15,
+    fontFamily: typography.fonts.regular,
+    lineHeight: 26,
+  },
+
   form: {
     width: "100%",
-    marginBottom: spacing.xl,
   },
+
+  field: {
+    width: "100%",
+  },
+
+  label: {
+    fontSize: 15,
+    fontFamily: typography.fonts.regular,
+    color: "#000000",
+    marginBottom: 14,
+  },
+
   submitButton: {
-    marginTop: spacing.sm,
+    marginTop: 24,
   },
-  disclaimer: {
-    fontSize: typography.fontSize.xs,
-    color: colors.text.secondary,
-    textAlign: "center",
-    marginTop: spacing.lg,
-    lineHeight: typography.fontSize.xs * typography.lineHeight.normal,
-  },
-  link: {
-    color: colors.text.primary,
-    fontWeight: typography.fontWeight.bold,
-    fontFamily: typography.fonts.bold,
-  },
+
   footer: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
-    marginTop: spacing.xl,
+    marginTop: "auto",
+    paddingTop: 40,
   },
+
   footerText: {
-    fontSize: typography.fontSize.sm,
-    color: colors.text.secondary,
+    fontSize: 15,
+    fontFamily: typography.fonts.regular,
+    color: "#708892",
   },
+
   footerAction: {
-    fontSize: typography.fontSize.sm,
-    fontWeight: typography.fontWeight.bold,
-    fontFamily: typography.fonts.bold,
-    color: colors.primary,
-    marginLeft: spacing.xxs,
+    fontSize: 15,
+    fontFamily: typography.fonts.medium,
+    marginLeft: 4,
   },
 });
