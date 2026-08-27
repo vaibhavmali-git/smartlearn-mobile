@@ -1,0 +1,131 @@
+import { colors, radii, spacing, typography } from "@/theme";
+import { StyleSheet } from "react-native";
+
+export const styles = StyleSheet.create({
+  card: {
+    backgroundColor: "#F9FAFC",
+    borderRadius: 32,
+    padding: spacing.xl,
+    marginBottom: spacing.xl,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: spacing.xl,
+  },
+  title: {
+    fontSize: typography.fontSize.xl,
+    fontFamily: typography.fonts.semiBold,
+    color: colors.primary,
+  },
+  countContainer: {
+    flexDirection: "row",
+    alignItems: "baseline",
+  },
+  currentCount: {
+    fontSize: typography.fontSize.lg,
+    fontFamily: typography.fonts.bold,
+    color: colors.primary,
+  },
+  targetCount: {
+    fontSize: typography.fontSize.md,
+    fontFamily: typography.fonts.medium,
+    color: colors.text.muted,
+  },
+  progressTrack: {
+    height: 48,
+    backgroundColor: colors.surface,
+    borderRadius: radii.full,
+    flexDirection: "row",
+    position: "relative",
+    marginBottom: spacing.sm,
+    borderWidth: 1,
+    borderColor: colors.border.light,
+  },
+  progressFill: {
+    position: "absolute",
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: "57%",
+    backgroundColor: "#D7E9D3",
+    borderRadius: radii.full,
+  },
+  tickMarksContainer: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-around",
+    alignItems: "center",
+    zIndex: 1,
+  },
+  tickMarkActive: {
+    width: 2,
+    height: 16,
+    backgroundColor: "#4A6B1A",
+    borderRadius: 2,
+  },
+  tickMarkInactive: {
+    width: 2,
+    height: 16,
+    backgroundColor: "#E5E7EB",
+    borderRadius: 2,
+  },
+  daysRow: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    paddingHorizontal: spacing.xs,
+    marginBottom: spacing.lg,
+  },
+  dayText: {
+    fontSize: typography.fontSize.sm,
+    fontFamily: typography.fonts.medium,
+    color: colors.text.muted,
+    width: 30,
+    textAlign: "center",
+  },
+  dayTextActive: {
+    color: colors.primary,
+    fontFamily: typography.fonts.bold,
+  },
+  dayTextCurrent: {
+    color: "#8CA5CB",
+  },
+  fireIconContainer: {
+    position: "absolute",
+    top: -24,
+    left: "48%",
+    width: 44,
+    height: 44,
+    backgroundColor: colors.surface,
+    borderRadius: radii.full,
+    alignItems: "center",
+    justifyContent: "center",
+    shadowColor: colors.primary,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 8,
+    elevation: 3,
+    zIndex: 10,
+  },
+  fireIcon: {
+    width: 24,
+    height: 24,
+  },
+  footerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  buddyIcon: {
+    width: 32,
+    height: 32,
+  },
+  closeText: {
+    fontSize: typography.fontSize.xl,
+    fontFamily: typography.fonts.medium,
+    color: colors.text.primary,
+  },
+});
