@@ -18,12 +18,14 @@ export function OnboardingScreen({
     <ScreenContainer scrollable={false} backgroundColor="#FFFFFF">
       <View style={styles.container}>
         <View style={styles.header}>
+          {/* Decorative background arch */}
           <Image
             source={require("@/assets/illustrations/abstract-background-shape.svg")}
             style={styles.backgroundArch}
-            contentFit="cover"
+            contentFit="contain"
           />
 
+          {/* Logo */}
           <View style={styles.logoBadge}>
             <Image
               source={require("@/assets/icons/logo_book.svg")}
@@ -31,6 +33,7 @@ export function OnboardingScreen({
               contentFit="contain"
             />
           </View>
+
           <Text style={styles.brandName}>SmartLearn</Text>
         </View>
 
@@ -57,6 +60,7 @@ export function OnboardingScreen({
             />
 
             <Text style={styles.cardTitle}>Personalized</Text>
+
             <View style={styles.badgeTextContainer}>
               <Text style={styles.badgeText}>Learning</Text>
             </View>
@@ -86,6 +90,7 @@ export function OnboardingScreen({
             variant="primary"
             onPress={onNavigateToSignUp}
           />
+
           <Button
             title="Log in"
             variant="outline"

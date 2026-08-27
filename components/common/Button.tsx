@@ -104,8 +104,7 @@ const styles = StyleSheet.create({
     marginLeft: spacing.xs,
   },
   text: {
-    fontFamily: typography.fonts.semiBold,
-    fontWeight: typography.fontWeight.semiBold,
+    fontFamily: typography.fonts.medium,
   },
 
   size_sm: {
@@ -127,11 +126,11 @@ const styles = StyleSheet.create({
     fontSize: typography.fontSize.md,
   },
   lgText: {
-    fontSize: typography.fontSize.lg,
+    fontSize: 16,
   },
 
   primary: {
-    backgroundColor: colors.primary,
+    backgroundColor: "#1C274C",
   },
   primaryPressed: {
     backgroundColor: colors.primaryLight,
@@ -153,7 +152,7 @@ const styles = StyleSheet.create({
 
   outline: {
     backgroundColor: "transparent",
-    borderWidth: 1.5,
+    borderWidth: 1,
     borderColor: colors.primary,
   },
   outlinePressed: {
