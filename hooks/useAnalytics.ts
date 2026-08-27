@@ -5,7 +5,6 @@ import { useState } from "react";
 export function useAnalytics() {
   const [activeCategory, setActiveCategory] = useState<string>("letters");
 
-  // Filter out 'all' from categories for the skill progress filters
   const skillCategories = CATEGORIES.filter((c) => c.id !== "all");
 
   const chartData =

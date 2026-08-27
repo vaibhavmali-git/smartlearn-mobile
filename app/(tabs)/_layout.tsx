@@ -1,5 +1,5 @@
 import { colors } from "@/theme";
-import { Ionicons } from "@expo/vector-icons";
+import { FontAwesome5, Ionicons } from "@expo/vector-icons";
 import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
@@ -24,6 +24,16 @@ export default function TabsLayout() {
           title: "Home",
           tabBarIcon: ({ color }) => (
             <Ionicons name="home" size={24} color={color} />
+          ),
+        }}
+      />
+      {/* AI Coach Tab */}
+      <Tabs.Screen
+        name="ai"
+        options={{
+          title: "AI Coach",
+          tabBarIcon: ({ color }) => (
+            <FontAwesome5 name="robot" size={20} color={color} />
           ),
         }}
       />

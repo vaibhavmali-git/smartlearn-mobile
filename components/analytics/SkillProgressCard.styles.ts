@@ -63,7 +63,6 @@ export const styles = StyleSheet.create({
     color: colors.onPrimary,
   },
 
-  // Chart Area
   chartContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
