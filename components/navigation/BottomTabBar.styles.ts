@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     gap: 1,
     overflow: "hidden",
-    backgroundColor: "rgba(244, 243, 243, 0.9)",
+    backgroundColor: "rgba(244, 243, 243, 0.8)",
   },
 
   tabItem: {

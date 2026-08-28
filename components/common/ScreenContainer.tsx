@@ -47,7 +47,7 @@ export function ScreenContainer({
   return (
     <SafeAreaView
       style={[styles.safeArea, { backgroundColor }, style]}
-      edges={["top", "left", "right", "bottom"]}
+      edges={["top"]}
     >
       <StatusBar
         barStyle={statusBarStyle}

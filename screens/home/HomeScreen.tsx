@@ -33,7 +33,8 @@ export function HomeScreen() {
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        contentContainerStyle={styles.carousel}
+        style={styles.carousel}
+        contentContainerStyle={styles.carouselContent}
       >
         {lessons.map((lesson) => (
           <LessonCard

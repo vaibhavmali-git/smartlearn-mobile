@@ -51,6 +51,12 @@ export const styles = StyleSheet.create({
     marginBottom: spacing.md,
   },
   carousel: {
+    marginHorizontal: -spacing.md,
+  },
+
+  carouselContent: {
+    paddingHorizontal: spacing.md,
     paddingRight: spacing.xl,
+    gap: 10,
   },
 });

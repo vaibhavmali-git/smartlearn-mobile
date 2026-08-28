@@ -7,7 +7,6 @@ export const styles = StyleSheet.create({
     height: 320,
     borderRadius: 32,
     padding: 13,
-    marginRight: spacing.md,
     justifyContent: "space-between",
     overflow: "hidden",
   },
