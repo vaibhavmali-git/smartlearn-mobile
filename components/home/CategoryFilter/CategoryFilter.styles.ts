@@ -3,54 +3,85 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    marginBottom: spacing.lg,
+    marginBottom: 12,
+    marginHorizontal: -spacing.lg,
+    paddingHorizontal: spacing.lg,
   },
+
   listContent: {
-    gap: spacing.sm,
+    gap: 7,
     paddingRight: spacing.xl,
   },
+
   pill: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.xs,
+    justifyContent: "space-between",
+    height: 44,
+    paddingHorizontal: 4,
     borderRadius: radii.full,
     borderWidth: 1,
-    borderColor: colors.border.light,
+    borderColor: "#0000000D",
     backgroundColor: colors.surface,
-    gap: 6,
+    gap: 11,
   },
+
   pillActive: {
     backgroundColor: colors.primary,
     borderColor: colors.primary,
   },
-  iconWrapper: {
-    width: 20,
+
+  categoryContent: {
+    flexDirection: "row",
     alignItems: "center",
+    gap: 3,
   },
+
+  iconWrapper: {
+    width: 32,
+    height: 34,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
   text: {
-    fontSize: typography.fontSize.sm,
-    fontFamily: typography.fonts.semiBold,
-    color: colors.primary,
+    fontSize: 12,
+    fontFamily: typography.fonts.medium,
+    color: "#010000",
+    includeFontPadding: false,
   },
+
   textActive: {
     color: colors.onPrimary,
   },
+
   countBadge: {
-    backgroundColor: colors.surfaceSubtle,
+    width: 34,
+    height: 34,
     borderRadius: radii.full,
-    paddingHorizontal: 6,
-    paddingVertical: 2,
+    backgroundColor: "#F4F3F380",
+    alignItems: "center",
+    justifyContent: "center",
   },
+
   countBadgeActive: {
-    backgroundColor: "rgba(255,255,255,0.2)",
+    backgroundColor: colors.surface,
   },
+
   countText: {
-    fontSize: 10,
-    fontFamily: typography.fonts.bold,
-    color: colors.text.secondary,
+    fontSize: 12,
+    lineHeight: 16,
+    fontFamily: typography.fonts.regular,
+    color: "#6A8282",
+    includeFontPadding: false,
   },
+
   countTextActive: {
-    color: colors.onPrimary,
+    color: "#010000",
+  },
+
+  allText: {
+    marginLeft: 12,
+    marginRight: 4,
   },
 });

@@ -45,9 +45,9 @@ export const styles = StyleSheet.create({
   },
 
   sectionTitle: {
-    fontSize: typography.fontSize.xl,
-    fontFamily: typography.fonts.bold,
-    color: colors.primary,
+    fontSize: 26,
+    fontFamily: typography.fonts.medium,
+    color: "#010000",
     marginBottom: spacing.md,
   },
   carousel: {

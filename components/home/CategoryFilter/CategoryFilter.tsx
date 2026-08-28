@@ -1,29 +1,70 @@
 import { Category } from "@/data/lessons";
 import { colors } from "@/theme";
-import { Ionicons } from "@expo/vector-icons";
+import {
+    PaintBoardIcon,
+    PawPrintIcon,
+    ShapesIcon,
+    TextFontIcon,
+} from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react-native";
 import React from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { styles } from "./CategoryFilter.styles";
 
+interface CategoryWithCount extends Category {
+  count: number;
+}
+
 interface CategoryFilterProps {
-  categories: Category[];
+  categories: CategoryWithCount[];
   activeCategory: string;
   onSelectCategory: (id: string) => void;
 }
 
 const getCategoryIcon = (id: string, isActive: boolean) => {
   const color = isActive ? colors.onPrimary : colors.primary;
+
   switch (id) {
     case "letters":
       return (
-        <Text style={{ color, fontSize: 14, fontWeight: "bold" }}>Aa</Text>
+        <HugeiconsIcon
+          icon={TextFontIcon}
+          size={18}
+          color={color}
+          strokeWidth={3}
+        />
       );
+
     case "colors":
-      return <Ionicons name="color-palette-outline" size={16} color={color} />;
+      return (
+        <HugeiconsIcon
+          icon={PaintBoardIcon}
+          size={18}
+          color={color}
+          strokeWidth={2}
+        />
+      );
+
     case "shapes":
-      return <Ionicons name="shapes-outline" size={16} color={color} />;
+      return (
+        <HugeiconsIcon
+          icon={ShapesIcon}
+          size={18}
+          color={color}
+          strokeWidth={2}
+        />
+      );
+
     case "animals":
-      return <Ionicons name="paw-outline" size={16} color={color} />;
+      return (
+        <HugeiconsIcon
+          icon={PawPrintIcon}
+          size={18}
+          color={color}
+          strokeWidth={2}
+        />
+      );
+
     default:
       return null;
   }
@@ -43,20 +84,31 @@ export function CategoryFilter({
     >
       {categories.map((cat) => {
         const isActive = activeCategory === cat.id;
+
         return (
           <Pressable
             key={cat.id}
             style={[styles.pill, isActive && styles.pillActive]}
             onPress={() => onSelectCategory(cat.id)}
           >
-            {cat.id !== "all" && (
-              <View style={styles.iconWrapper}>
-                {getCategoryIcon(cat.id, isActive)}
-              </View>
-            )}
-            <Text style={[styles.text, isActive && styles.textActive]}>
-              {cat.name}
-            </Text>
+            <View style={styles.categoryContent}>
+              {cat.id !== "all" && (
+                <View style={styles.iconWrapper}>
+                  {getCategoryIcon(cat.id, isActive)}
+                </View>
+              )}
+
+              <Text
+                style={[
+                  styles.text,
+                  cat.id === "all" && styles.allText,
+                  isActive && styles.textActive,
+                ]}
+              >
+                {cat.name}
+              </Text>
+            </View>
+
             <View
               style={[styles.countBadge, isActive && styles.countBadgeActive]}
             >
