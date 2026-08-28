@@ -64,12 +64,17 @@ export function StreakCard({ data }: { data: StreakData }) {
         </View>
       </View>
 
-      <View style={styles.footerRow}>
-        <Image
-          source={require("@/assets/icons/logo-ai-buddy.png")}
-          style={styles.buddyIcon}
-          contentFit="contain"
-        />
+      <View style={styles.footerContainer}>
+        <View style={styles.buddySection}>
+          <Image
+            source={require("@/assets/icons/logo-ai-buddy.png")}
+            style={styles.buddyIcon}
+            contentFit="contain"
+          />
+          <Text style={styles.buddyText}>
+            You learn best with quick 5-min lessons.
+          </Text>
+        </View>
         <Text style={styles.closeText}>×</Text>
       </View>
     </View>

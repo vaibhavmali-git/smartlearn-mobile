@@ -4,6 +4,7 @@ import { colors } from "@/theme";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
+import Svg, { Defs, Line, Pattern, Rect } from "react-native-svg";
 import { styles } from "./SkillProgressCard.styles";
 
 interface SkillProgressCardProps {
@@ -61,23 +62,63 @@ export function SkillProgressCard({
       </ScrollView>
 
       <View style={styles.chartContainer}>
-        {chartData.map((data, index) => (
-          <View key={index} style={styles.barCol}>
-            <View
-              style={[
-                styles.bar,
-                { height: `${data.value}%` },
-                data.isHighest && styles.barActive,
-              ]}
-            >
-              {data.isHighest && (
-                <View style={styles.bubble}>
-                  <Text style={styles.bubbleText}>+30%</Text>
+        {chartData.map((data, index) => {
+          const barHeight = data.value;
+          return (
+            <View key={index} style={styles.barCol}>
+              {data.isHighest ? (
+                <>
+                  <View style={styles.bubble}>
+                    <Text style={styles.bubbleText}>+30%</Text>
+                  </View>
+                  <View
+                    style={[
+                      styles.bar,
+                      styles.barActive,
+                      { height: `${barHeight}%` },
+                    ]}
+                  />
+                </>
+              ) : (
+                <View style={[styles.bar, { height: `${barHeight}%` }]}>
+                  <Svg
+                    width="32"
+                    height="100%"
+                    style={styles.stripedPattern}
+                    preserveAspectRatio="none"
+                  >
+                    <Defs>
+                      <Pattern
+                        id={`diagonalStripes-${index}`}
+                        patternUnits="userSpaceOnUse"
+                        width="4"
+                        height="4"
+                        patternTransform="rotate(45)"
+                      >
+                        <Rect
+                          x="0"
+                          y="0"
+                          width="2"
+                          height="4"
+                          fill="#1E3A5F"
+                        />
+                      </Pattern>
+                    </Defs>
+                    <Rect
+                      x="0"
+                      y="0"
+                      width="32"
+                      height="100%"
+                      fill={`url(#diagonalStripes-${index})`}
+                      rx="16"
+                      ry="16"
+                    />
+                  </Svg>
                 </View>
               )}
             </View>
-          </View>
-        ))}
+          );
+        })}
       </View>
 
       <View style={styles.chartDaysRow}>

@@ -1,4 +1,4 @@
-import { colors, radii, spacing, typography } from "@/theme";
+import { radii, spacing, typography } from "@/theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
@@ -10,29 +10,26 @@ export const styles = StyleSheet.create({
     paddingTop: spacing.sm,
   },
   title: {
-    fontSize: 34,
-    fontFamily: typography.fonts.heavy,
-    color: colors.primary,
+    fontSize: 26,
+    fontFamily: typography.fonts.medium,
     letterSpacing: -0.5,
   },
   bellBadge: {
-    width: 44,
-    height: 44,
+    width: 48,
+    height: 48,
     borderRadius: radii.full,
-    backgroundColor: "#F8F9FC",
+    backgroundColor: "#F0EFEF66",
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 1,
-    borderColor: colors.border.light,
     position: "relative",
   },
   notificationDot: {
     position: "absolute",
-    top: 10,
-    right: 12,
+    top: 12,
+    right: 15,
     width: 8,
     height: 8,
-    backgroundColor: "#FF4B4B",
+    backgroundColor: "#F22138",
     borderRadius: radii.full,
     borderWidth: 1.5,
     borderColor: "#FFFFFF",
