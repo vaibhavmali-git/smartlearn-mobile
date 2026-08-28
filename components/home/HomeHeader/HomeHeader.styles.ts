@@ -7,11 +7,12 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: spacing.xl,
+    marginTop: spacing.md,
   },
   profileSection: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.sm,
+    gap: 11,
   },
   avatar: {
     width: 48,
@@ -20,34 +21,66 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.pastel.amber,
   },
   greetingText: {
-    color: colors.text.secondary,
-    fontSize: typography.fontSize.sm,
+    color: "#708892",
+    fontSize: 13,
     fontFamily: typography.fonts.medium,
   },
   nameText: {
     color: colors.primary,
-    fontSize: typography.fontSize.lg,
-    fontFamily: typography.fonts.bold,
+    fontSize: 15,
+    fontFamily: typography.fonts.medium,
   },
   actions: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.sm,
+    gap: 7,
   },
   langButton: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: colors.surface,
+    backgroundColor: "#F0EFEF66",
     paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xxs,
+    paddingVertical: spacing.sm,
     borderRadius: radii.full,
-    borderWidth: 1,
-    borderColor: colors.border.light,
     gap: 4,
   },
+
+  languageContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 6,
+  },
+
+  flag: {
+    width: 16,
+    height: 16,
+    resizeMode: "contain",
+  },
+
   langText: {
-    fontSize: typography.fontSize.sm,
-    fontFamily: typography.fonts.semiBold,
-    color: colors.primary,
+    fontSize: 12,
+    fontFamily: typography.fonts.regular,
+  },
+
+  bellBadge: {
+    width: 44,
+    height: 44,
+    borderRadius: radii.full,
+    backgroundColor: "#F0EFEF66",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+  },
+
+  notificationDot: {
+    position: "absolute",
+    top: 10,
+    right: 12,
+    width: 8,
+    height: 8,
+    backgroundColor: "#F22138",
+    borderRadius: radii.full,
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
   },
 });

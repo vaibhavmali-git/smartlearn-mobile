@@ -1,4 +1,3 @@
-import { IconButton } from "@/components/common/IconButton";
 import { colors } from "@/theme";
 import { Ionicons } from "@expo/vector-icons";
 import { Image } from "expo-image";
@@ -15,7 +14,7 @@ export function HomeHeader({ userName }: HomeHeaderProps) {
     <View style={styles.container}>
       <View style={styles.profileSection}>
         <Image
-          source={{ uri: "https://i.pravatar.cc/150?img=11" }}
+          source={require("@/assets/icons/avatar.png")}
           style={styles.avatar}
         />
         <View>
@@ -26,21 +25,21 @@ export function HomeHeader({ userName }: HomeHeaderProps) {
 
       <View style={styles.actions}>
         <Pressable style={styles.langButton}>
-          <Text style={styles.langText}>🇬🇧 English</Text>
-          <Ionicons name="chevron-down" size={14} color={colors.primary} />
+          <Image
+            source={require("@/assets/icons/flag.png")}
+            style={styles.flag}
+          />
+          <Text style={styles.langText}>English</Text>
+          <Ionicons name="chevron-down" size={12} color={colors.primary} />
         </Pressable>
-        <IconButton
-          icon={
-            <Ionicons
-              name="notifications-outline"
-              size={22}
-              color={colors.primary}
-            />
-          }
-          onPress={() => {}}
-          size="md"
-          accessibilityLabel="Notifications"
-        />
+        <View style={styles.bellBadge}>
+          <Ionicons
+            name="notifications-outline"
+            size={24}
+            color={colors.primary}
+          />
+          <View style={styles.notificationDot} />
+        </View>
       </View>
     </View>
   );
