@@ -10,4 +10,11 @@ export const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 40,
   },
+  bottomGradient: {
+    position: "absolute",
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 120,
+  },
 });

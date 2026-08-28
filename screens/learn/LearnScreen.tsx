@@ -3,6 +3,7 @@ import { LearnHeader } from "@/components/learn/LearnHeader/LearnHeader";
 import { LessonItem } from "@/components/learn/LessonItem/LessonItem";
 import { useLessonProgress } from "@/hooks/useLessonProgress";
 import { colors } from "@/theme";
+import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import React from "react";
 import {
@@ -99,17 +100,31 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
         />
 
         <View style={styles.listContainer}>
-          {course.nodes.map((node, index) => (
-            <LessonItem
-              key={node.id}
-              node={{ ...node, backgroundColor: course.backgroundColor }}
-              index={index}
-              isLast={index === course.nodes.length - 1}
-              onPress={() => console.log(`Start lesson: ${node.id}`)}
-            />
-          ))}
+          {course.nodes.map((node, index) => {
+            const nextNode = course.nodes[index + 1];
+            return (
+              <LessonItem
+                key={node.id}
+                node={{ ...node, backgroundColor: course.backgroundColor }}
+                index={index}
+                isLast={index === course.nodes.length - 1}
+                nextNodeStatus={nextNode ? nextNode.status : undefined}
+                onPress={() => console.log(`Start lesson: ${node.id}`)}
+              />
+            );
+          })}
         </View>
       </ScrollView>
+
+      <LinearGradient
+        colors={[
+          "rgba(255, 255, 255, 0)",
+          "rgba(255, 255, 255, 0.3)",
+          "#FFFFFF",
+        ]}
+        style={styles.bottomGradient}
+        pointerEvents="none"
+      />
     </View>
   );
 }
