@@ -1,3 +1,11 @@
+export interface LessonNode {
+  id: string;
+  title: string;
+  description: string;
+  durationMinutes: number;
+  status: "completed" | "current" | "locked";
+}
+
 export interface Category {
   id: string;
   name: string;
@@ -12,10 +20,11 @@ export interface Lesson {
   categoryId: string;
   title: string;
   subtitle: string;
-  lessonCount: number;
-  durationMinutes: number;
   backgroundColor: string;
   iconName: any;
+  illustration: any;
+  progressPercentage: number;
+  nodes: LessonNode[];
 }
 
 export const CATEGORIES: Category[] = [
@@ -27,131 +36,419 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const LESSONS: Lesson[] = [
-  // Colors — 4 lessons
+  // ─────────────────────────────────────────────
+  // COLORS 1
+  // ─────────────────────────────────────────────
   {
     id: "colors_1",
     categoryId: "colors",
     title: "Learn colors with objects",
     subtitle: "Colors",
-    lessonCount: 12,
-    durationMinutes: 10,
     backgroundColor: "#E5CDFF",
     iconName: "color-palette-outline",
-  },
-  {
-    id: "colors_2",
-    categoryId: "colors",
-    title: "Explore bright colors",
-    subtitle: "Colors",
-    lessonCount: 8,
-    durationMinutes: 8,
-    backgroundColor: "#E5D9F8",
-    iconName: "color-palette-outline",
-  },
-  {
-    id: "colors_3",
-    categoryId: "colors",
-    title: "Match colors around you",
-    subtitle: "Colors",
-    lessonCount: 10,
-    durationMinutes: 12,
-    backgroundColor: "#E5D9F8",
-    iconName: "color-palette-outline",
-  },
-  {
-    id: "colors_4",
-    categoryId: "colors",
-    title: "Fun with primary colors",
-    subtitle: "Colors",
-    lessonCount: 9,
-    durationMinutes: 10,
-    backgroundColor: "#E5D9F8",
-    iconName: "color-palette-outline",
+    illustration: require("@/assets/illustrations/colors-learning-illustration.svg"),
+    progressPercentage: 20,
+    nodes: [
+      {
+        id: "colors_1_1",
+        title: "Meet the basic colors",
+        description: "Discover red, blue, yellow and other basic colors",
+        durationMinutes: 5,
+        status: "completed",
+      },
+      {
+        id: "colors_1_2",
+        title: "Colors around us",
+        description: "Find familiar objects and identify their colors",
+        durationMinutes: 8,
+        status: "current",
+      },
+      {
+        id: "colors_1_3",
+        title: "Match the colors",
+        description: "Match objects with their correct colors",
+        durationMinutes: 7,
+        status: "locked",
+      },
+      {
+        id: "colors_1_4",
+        title: "Color mixing",
+        description: "Discover what happens when colors are mixed",
+        durationMinutes: 10,
+        status: "locked",
+      },
+    ],
   },
 
-  // Letters — 3 lessons
+  // ─────────────────────────────────────────────
+  // LETTERS 1
+  // ─────────────────────────────────────────────
   {
     id: "letters_1",
     categoryId: "letters",
     title: "Learn ABC with fun sounds",
     subtitle: "Letters",
-    lessonCount: 26,
-    durationMinutes: 90,
-    backgroundColor: "#EDF9B8",
+    backgroundColor: "#DCEA8F",
     iconName: "text-outline",
-  },
-  {
-    id: "letters_2",
-    categoryId: "letters",
-    title: "Practice uppercase letters",
-    subtitle: "Letters",
-    lessonCount: 20,
-    durationMinutes: 15,
-    backgroundColor: "#EDF9B8",
-    iconName: "text-outline",
-  },
-  {
-    id: "letters_3",
-    categoryId: "letters",
-    title: "Discover lowercase letters",
-    subtitle: "Letters",
-    lessonCount: 20,
-    durationMinutes: 15,
-    backgroundColor: "#EDF9B8",
-    iconName: "text-outline",
+    illustration: require("@/assets/illustrations/personalized-learning-illustration.svg"),
+    progressPercentage: 12,
+    nodes: [
+      {
+        id: "letters_1_a",
+        title: "A for Apple",
+        description: "Learn the sound of A and objects that start with A",
+        durationMinutes: 2,
+        status: "completed",
+      },
+      {
+        id: "letters_1_b",
+        title: "B for Ball",
+        description: "Recognize the letter B and its phonetic sound",
+        durationMinutes: 3,
+        status: "current",
+      },
+      {
+        id: "letters_1_c",
+        title: "C for Cat",
+        description: 'Learn the "C" sound with fun animations',
+        durationMinutes: 10,
+        status: "locked",
+      },
+      {
+        id: "letters_1_d",
+        title: "D for Dog",
+        description: "Hear and repeat the D sound",
+        durationMinutes: 5,
+        status: "locked",
+      },
+      {
+        id: "letters_1_e",
+        title: "E for Elephant",
+        description: "Learn the E sound with fun examples",
+        durationMinutes: 10,
+        status: "locked",
+      },
+    ],
   },
 
-  // Shapes — 2 lessons
+  // ─────────────────────────────────────────────
+  // SHAPES 1
+  // ─────────────────────────────────────────────
   {
     id: "shapes_1",
     categoryId: "shapes",
     title: "Discover fun shapes",
     subtitle: "Shapes",
-    lessonCount: 10,
-    durationMinutes: 10,
-    backgroundColor: "#DDEBFF",
+    backgroundColor: "#99C2FF", // More saturated blue
     iconName: "shapes-outline",
-  },
-  {
-    id: "shapes_2",
-    categoryId: "shapes",
-    title: "Match shapes around you",
-    subtitle: "Shapes",
-    lessonCount: 8,
-    durationMinutes: 12,
-    backgroundColor: "#DDEBFF",
-    iconName: "shapes-outline",
+    illustration: require("@/assets/illustrations/letters-learning-illustration.svg"),
+    progressPercentage: 20,
+    nodes: [
+      {
+        id: "shapes_1_1",
+        title: "Meet the circle",
+        description: "Learn to recognize circles around you",
+        durationMinutes: 5,
+        status: "completed",
+      },
+      {
+        id: "shapes_1_2",
+        title: "Meet the square",
+        description: "Discover squares and where to find them",
+        durationMinutes: 5,
+        status: "current",
+      },
+      {
+        id: "shapes_1_3",
+        title: "Meet the triangle",
+        description: "Learn about triangles through fun examples",
+        durationMinutes: 7,
+        status: "locked",
+      },
+    ],
   },
 
-  // Animals — 3 lessons
+  // ─────────────────────────────────────────────
+  // ANIMALS 1
+  // ─────────────────────────────────────────────
   {
     id: "animals_1",
     categoryId: "animals",
     title: "Meet the animals",
     subtitle: "Animals",
-    lessonCount: 12,
-    durationMinutes: 10,
-    backgroundColor: "#FFE2D5",
+    backgroundColor: "#FFD2BE",
     iconName: "paw-outline",
+    illustration: require("@/assets/illustrations/learning-girl-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "animals_1_1",
+        title: "Farm animals",
+        description: "Meet some common animals found on a farm",
+        durationMinutes: 6,
+        status: "current",
+      },
+      {
+        id: "animals_1_2",
+        title: "Wild animals",
+        description: "Discover animals that live in the wild",
+        durationMinutes: 8,
+        status: "locked",
+      },
+      {
+        id: "animals_1_3",
+        title: "Animal homes",
+        description: "Learn where different animals live",
+        durationMinutes: 7,
+        status: "locked",
+      },
+    ],
   },
+
+  // ─────────────────────────────────────────────
+  // COLORS 2
+  // ─────────────────────────────────────────────
+  {
+    id: "colors_2",
+    categoryId: "colors",
+    title: "Explore bright colors",
+    subtitle: "Colors",
+    backgroundColor: "#E5CDFF",
+    iconName: "color-palette-outline",
+    illustration: require("@/assets/illustrations/personalized-learning-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "colors_2_1",
+        title: "Bright and dark colors",
+        description: "Learn to recognize bright and dark colors",
+        durationMinutes: 6,
+        status: "current",
+      },
+      {
+        id: "colors_2_2",
+        title: "Find bright colors",
+        description: "Find bright colors in everyday objects",
+        durationMinutes: 7,
+        status: "locked",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // LETTERS 2
+  // ─────────────────────────────────────────────
+  {
+    id: "letters_2",
+    categoryId: "letters",
+    title: "Practice uppercase letters",
+    subtitle: "Letters",
+    backgroundColor: "#DCEA8F",
+    iconName: "text-outline",
+    illustration: require("@/assets/illustrations/letters-learning-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "letters_2_1",
+        title: "Meet the uppercase letters",
+        description: "Learn how uppercase letters look and sound",
+        durationMinutes: 5,
+        status: "current",
+      },
+      {
+        id: "letters_2_2",
+        title: "Match uppercase letters",
+        description: "Match letters with their correct sounds",
+        durationMinutes: 6,
+        status: "locked",
+      },
+      {
+        id: "letters_2_3",
+        title: "Practice writing letters",
+        description: "Practice writing common uppercase letters",
+        durationMinutes: 8,
+        status: "locked",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // SHAPES 2
+  // ─────────────────────────────────────────────
+  {
+    id: "shapes_2",
+    categoryId: "shapes",
+    title: "Match shapes around you",
+    subtitle: "Shapes",
+    backgroundColor: "#99C2FF", // More saturated blue
+    iconName: "shapes-outline",
+    illustration: require("@/assets/illustrations/colors-learning-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "shapes_2_1",
+        title: "Find the shapes",
+        description: "Find different shapes in everyday objects",
+        durationMinutes: 6,
+        status: "current",
+      },
+      {
+        id: "shapes_2_2",
+        title: "Shape matching",
+        description: "Match objects with their correct shapes",
+        durationMinutes: 8,
+        status: "locked",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // ANIMALS 2
+  // ─────────────────────────────────────────────
   {
     id: "animals_2",
     categoryId: "animals",
     title: "Learn animal sounds",
     subtitle: "Animals",
-    lessonCount: 10,
-    durationMinutes: 12,
-    backgroundColor: "#FFE2D5",
+    backgroundColor: "#FFD2BE",
     iconName: "paw-outline",
+    illustration: require("@/assets/illustrations/personalized-learning-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "animals_2_1",
+        title: "Farm animal sounds",
+        description: "Learn the sounds of familiar farm animals",
+        durationMinutes: 6,
+        status: "current",
+      },
+      {
+        id: "animals_2_2",
+        title: "Wild animal sounds",
+        description: "Listen and identify wild animal sounds",
+        durationMinutes: 8,
+        status: "locked",
+      },
+    ],
   },
+
+  // ─────────────────────────────────────────────
+  // COLORS 3
+  // ─────────────────────────────────────────────
+  {
+    id: "colors_3",
+    categoryId: "colors",
+    title: "Match colors around you",
+    subtitle: "Colors",
+    backgroundColor: "#E5CDFF",
+    iconName: "color-palette-outline",
+    illustration: require("@/assets/illustrations/learning-girl-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "colors_3_1",
+        title: "Color matching",
+        description: "Match objects that have the same color",
+        durationMinutes: 8,
+        status: "current",
+      },
+      {
+        id: "colors_3_2",
+        title: "Color challenge",
+        description: "Test what you know about colors",
+        durationMinutes: 10,
+        status: "locked",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // LETTERS 3
+  // ─────────────────────────────────────────────
+  {
+    id: "letters_3",
+    categoryId: "letters",
+    title: "Discover lowercase letters",
+    subtitle: "Letters",
+    backgroundColor: "#DCEA8F",
+    iconName: "text-outline",
+    illustration: require("@/assets/illustrations/learning-girl-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "letters_3_1",
+        title: "Meet lowercase letters",
+        description: "Discover the lowercase alphabet",
+        durationMinutes: 5,
+        status: "current",
+      },
+      {
+        id: "letters_3_2",
+        title: "Match lowercase letters",
+        description: "Match lowercase letters with sounds",
+        durationMinutes: 6,
+        status: "locked",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // ANIMALS 3
+  // ─────────────────────────────────────────────
   {
     id: "animals_3",
     categoryId: "animals",
     title: "Where animals live",
     subtitle: "Animals",
-    lessonCount: 8,
-    durationMinutes: 10,
-    backgroundColor: "#FFE2D5",
+    backgroundColor: "#FFD2BE",
     iconName: "paw-outline",
+    illustration: require("@/assets/illustrations/letters-learning-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "animals_3_1",
+        title: "Animals on the farm",
+        description: "Discover where farm animals live",
+        durationMinutes: 6,
+        status: "current",
+      },
+      {
+        id: "animals_3_2",
+        title: "Animals in the jungle",
+        description: "Explore the homes of jungle animals",
+        durationMinutes: 8,
+        status: "locked",
+      },
+    ],
+  },
+
+  // ─────────────────────────────────────────────
+  // COLORS 4
+  // ─────────────────────────────────────────────
+  {
+    id: "colors_4",
+    categoryId: "colors",
+    title: "Fun with primary colors",
+    subtitle: "Colors",
+    backgroundColor: "#E5CDFF",
+    iconName: "color-palette-outline",
+    illustration: require("@/assets/illustrations/colors-learning-illustration.svg"),
+    progressPercentage: 0,
+    nodes: [
+      {
+        id: "colors_4_1",
+        title: "Red, blue and yellow",
+        description: "Learn the three primary colors",
+        durationMinutes: 6,
+        status: "current",
+      },
+      {
+        id: "colors_4_2",
+        title: "Primary color games",
+        description: "Practice identifying primary colors",
+        durationMinutes: 8,
+        status: "locked",
+      },
+    ],
   },
 ];

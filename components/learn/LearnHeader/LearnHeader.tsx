@@ -13,6 +13,7 @@ interface LearnHeaderProps {
   lessonCount: number;
   durationString: string;
   themeColor: string;
+  illustration: any;
 }
 
 export function LearnHeader({
@@ -21,6 +22,7 @@ export function LearnHeader({
   lessonCount,
   durationString,
   themeColor,
+  illustration,
 }: LearnHeaderProps) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -51,7 +53,7 @@ export function LearnHeader({
       </View>
 
       <Image
-        source={require("@/assets/illustrations/letters-learning-illustration.svg")}
+        source={illustration}
         style={styles.illustration}
         contentFit="contain"
       />

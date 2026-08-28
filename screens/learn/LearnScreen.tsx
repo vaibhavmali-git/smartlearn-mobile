@@ -28,7 +28,10 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
       <View
         style={[
           styles.container,
-          { justifyContent: "center", alignItems: "center" },
+          {
+            justifyContent: "center",
+            alignItems: "center",
+          },
         ]}
       >
         <ActivityIndicator size="large" color={colors.primary} />
@@ -41,7 +44,11 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
       <View
         style={[
           styles.container,
-          { justifyContent: "center", alignItems: "center", padding: 20 },
+          {
+            justifyContent: "center",
+            alignItems: "center",
+            padding: 20,
+          },
         ]}
       >
         <Text
@@ -54,10 +61,24 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
         >
           Course not found
         </Text>
+
         <Button title="Go Back" onPress={() => router.back()} />
       </View>
     );
   }
+
+  const lessonCount = course.nodes.length;
+
+  const durationMinutes = course.nodes.reduce(
+    (total, node) => total + node.durationMinutes,
+    0,
+  );
+
+  const hours = Math.floor(durationMinutes / 60);
+  const minutes = durationMinutes % 60;
+
+  const durationString =
+    hours > 0 ? `${hours} hr ${minutes} min` : `${minutes} min`;
 
   return (
     <View style={styles.container}>
@@ -71,9 +92,10 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
         <LearnHeader
           title={course.title}
           subtitle={course.subtitle}
-          lessonCount={course.lessonCount}
-          durationString={course.durationString}
-          themeColor={course.themeColor}
+          lessonCount={lessonCount}
+          durationString={durationString}
+          themeColor={course.backgroundColor}
+          illustration={course.illustration}
         />
 
         <LearningProgressCard percentage={course.progressPercentage} />
@@ -82,7 +104,7 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
           {course.nodes.map((node, index) => (
             <LessonItem
               key={node.id}
-              node={node}
+              node={{ ...node, backgroundColor: course.backgroundColor }}
               index={index}
               isLast={index === course.nodes.length - 1}
               onPress={() => console.log(`Start lesson: ${node.id}`)}

@@ -1,17 +1,22 @@
-import { COURSE_DETAILS } from "@/data/courseDetails";
-import { CourseDetails } from "@/types/lesson";
+import { LESSONS } from "@/data/lessons";
 import { useEffect, useState } from "react";
 
 export function useLessonProgress(lessonId: string) {
-  const [course, setCourse] = useState<CourseDetails | null>(null);
+  const [course, setCourse] = useState(
+    LESSONS.find((lesson) => lesson.id === lessonId) || null,
+  );
+
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
+
     const timer = setTimeout(() => {
-      setCourse(COURSE_DETAILS[lessonId] || null);
+      const lesson = LESSONS.find((item) => item.id === lessonId);
+
+      setCourse(lesson || null);
       setIsLoading(false);
-    }, 400);
+    }, 300);
 
     return () => clearTimeout(timer);
   }, [lessonId]);

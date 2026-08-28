@@ -13,6 +13,13 @@ interface LessonCardProps {
 }
 
 export function LessonCard({ lesson, onPress }: LessonCardProps) {
+  const lessonCount = lesson.nodes.length;
+
+  const durationMinutes = lesson.nodes.reduce(
+    (total, node) => total + node.durationMinutes,
+    0,
+  );
+
   return (
     <Pressable
       style={[styles.card, { backgroundColor: lesson.backgroundColor }]}
@@ -38,26 +45,24 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
         <View style={styles.metaTags}>
           <View style={styles.tag}>
             <Ionicons name="book-outline" size={11} color={colors.primary} />
-            <Text style={styles.tagText}>{lesson.lessonCount} lessons</Text>
+            <Text style={styles.tagText}>{lessonCount} lessons</Text>
           </View>
+
           <View style={styles.tag}>
             <Ionicons name="time-outline" size={12} color={colors.primary} />
-            <Text style={styles.tagText}>{lesson.durationMinutes} min</Text>
+            <Text style={styles.tagText}>{durationMinutes} min</Text>
           </View>
         </View>
       </View>
 
       <View style={styles.content}>
         <Text style={styles.subtitle}>{lesson.subtitle}</Text>
+
         <Text style={styles.title}>{lesson.title}</Text>
       </View>
 
       <Image
-        source={
-          lesson.categoryId === "colors"
-            ? require("@/assets/illustrations/colors-learning-illustration.svg")
-            : require("@/assets/illustrations/letters-learning-illustration.svg")
-        }
+        source={lesson.illustration}
         style={styles.illustration}
         contentFit="contain"
       />
