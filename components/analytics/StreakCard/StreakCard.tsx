@@ -66,7 +66,7 @@ export function StreakCard({ data }: { data: StreakData }) {
 
       <View style={styles.footerRow}>
         <Image
-          source={require("@/assets/icons/logo-ai-buddy.svg")}
+          source={require("@/assets/icons/logo-ai-buddy.png")}
           style={styles.buddyIcon}
           contentFit="contain"
         />

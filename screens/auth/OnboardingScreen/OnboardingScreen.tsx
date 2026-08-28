@@ -43,7 +43,7 @@ export function OnboardingScreen({
           </View>
 
           <Image
-            source={require("@/assets/icons/logo-bulb.svg")}
+            source={require("@/assets/icons/logo-bulb.png")}
             style={styles.bulbIcon}
             contentFit="contain"
           />

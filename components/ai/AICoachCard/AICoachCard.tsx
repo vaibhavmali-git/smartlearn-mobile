@@ -14,7 +14,7 @@ export function AICoachCard() {
       <View style={styles.row}>
         <View style={styles.buddyIconContainer}>
           <Image
-            source={require("@/assets/icons/logo-ai-buddy.svg")}
+            source={require("@/assets/icons/logo-ai-buddy.png")}
             style={styles.buddyIcon}
             contentFit="contain"
           />

@@ -3,85 +3,136 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#EEF4FC",
-    borderRadius: 28,
-    padding: spacing.lg,
+    backgroundColor: "#EAF1F9",
+    borderRadius: 27,
+    paddingTop: 14,
     marginBottom: spacing.xl,
-    overflow: "hidden",
   },
+
   headerRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.sm,
-    marginBottom: spacing.md,
+    gap: 8,
+    marginBottom: 9,
+    paddingHorizontal: spacing.sm,
   },
+
   buddyIcon: {
-    width: 44,
-    height: 44,
+    width: 46,
+    height: 47,
+    marginBottom: 10,
   },
+
+  textView: {
+    flex: 1,
+    gap: 4,
+  },
+
   buddyLabel: {
-    color: colors.text.secondary,
-    fontSize: typography.fontSize.xs,
+    color: "#708892",
+    fontSize: 11,
+    fontFamily: typography.fonts.regular,
+  },
+
+  buddyMessage: {
+    color: "#010000",
+    fontSize: 14,
     fontFamily: typography.fonts.medium,
   },
-  buddyMessage: {
-    color: colors.primary,
-    fontSize: typography.fontSize.lg,
-    fontFamily: typography.fonts.bold,
-  },
+
   illustration: {
     position: "absolute",
-    right: -10,
-    top: -10,
-    width: 140,
-    height: 140,
-    opacity: 0.9,
+    right: 24,
+    top: -13,
+    width: 85.5,
+    height: 119.1,
   },
+
+  bulb: {
+    position: "absolute",
+    right: 14,
+    top: 15,
+    width: 32,
+    height: 32,
+  },
+
   pickSection: {
+    overflow: "hidden",
+    borderRadius: 24,
+    marginHorizontal: 2,
+    marginVertical: 2,
+  },
+
+  pickBlur: {
+    ...StyleSheet.absoluteFillObject,
+  },
+
+  pickContent: {
     flexDirection: "row",
     justifyContent: "space-between",
-    alignItems: "flex-end",
-    marginTop: spacing.sm,
+    alignItems: "center",
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    gap: 40,
   },
+
   pickTitle: {
-    color: colors.primary,
-    fontSize: typography.fontSize.md,
-    fontFamily: typography.fonts.semiBold,
-    marginBottom: spacing.xs,
+    color: "#010000",
+    fontSize: 14,
+    fontFamily: typography.fonts.medium,
+    marginBottom: 6,
   },
+
   metaRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.sm,
+    gap: 5,
   },
+
   metaItem: {
     flexDirection: "row",
     alignItems: "center",
     gap: 4,
   },
+
   metaText: {
     color: colors.text.secondary,
     fontSize: typography.fontSize.xs,
-    fontFamily: typography.fonts.medium,
   },
+
   progressSection: {
     flexDirection: "row",
     alignItems: "center",
+    marginLeft: 9,
     gap: spacing.sm,
   },
+
   progressText: {
     color: colors.text.secondary,
-    fontSize: typography.fontSize.xs,
-    fontFamily: typography.fonts.medium,
+    fontSize: 12,
+    fontFamily: typography.fonts.regular,
   },
+
+  percentageText: {
+    color: "#121111",
+    fontFamily: typography.fonts.regular,
+  },
+
   playButton: {
-    width: 48,
-    height: 48,
+    width: 52,
+    height: 52,
     borderRadius: radii.full,
     backgroundColor: colors.surface,
     alignItems: "center",
     justifyContent: "center",
-    borderWidth: 2,
-    borderColor: colors.primary,
+  },
+
+  progressRing: {
+    position: "absolute",
+  },
+
+  playIcon: {
+    marginLeft: 3,
   },
 });

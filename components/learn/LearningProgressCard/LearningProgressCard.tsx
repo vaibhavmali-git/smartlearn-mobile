@@ -14,7 +14,7 @@ export function LearningProgressCard({
     <View style={styles.container}>
       <View style={styles.leftSection}>
         <Image
-          source={require("@/assets/icons/logo-ai-buddy.svg")}
+          source={require("@/assets/icons/logo-ai-buddy.png")}
           style={styles.buddyIcon}
           contentFit="contain"
         />
