@@ -35,7 +35,7 @@ export const LESSONS: Lesson[] = [
     subtitle: "Colors",
     lessonCount: 12,
     durationMinutes: 10,
-    backgroundColor: "#E5D9F8",
+    backgroundColor: "#E5CDFF",
     iconName: "color-palette-outline",
   },
   {

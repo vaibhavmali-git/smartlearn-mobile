@@ -1,6 +1,7 @@
 import { Lesson } from "@/data/lessons";
 import { colors } from "@/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
@@ -30,13 +31,13 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
               Aa
             </Text>
           ) : (
-            <Ionicons name={lesson.iconName} size={24} color={colors.primary} />
+            <Ionicons name={lesson.iconName} size={24} />
           )}
         </View>
 
         <View style={styles.metaTags}>
           <View style={styles.tag}>
-            <Ionicons name="book-outline" size={12} color={colors.primary} />
+            <Ionicons name="book-outline" size={11} color={colors.primary} />
             <Text style={styles.tagText}>{lesson.lessonCount} lessons</Text>
           </View>
           <View style={styles.tag}>
@@ -61,8 +62,9 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
         contentFit="contain"
       />
 
-      <View style={styles.actionRow}>
+      <BlurView intensity={35} tint="light" style={styles.actionRow}>
         <Text style={styles.actionText}>Start learning</Text>
+
         <View style={styles.playIcon}>
           <Ionicons
             name="play"
@@ -71,7 +73,7 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
             style={{ marginLeft: 3 }}
           />
         </View>
-      </View>
+      </BlurView>
     </Pressable>
   );
 }
