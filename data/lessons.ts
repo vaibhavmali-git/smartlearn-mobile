@@ -36,9 +36,6 @@ export const CATEGORIES: Category[] = [
 ];
 
 export const LESSONS: Lesson[] = [
-  // ─────────────────────────────────────────────
-  // COLORS 1
-  // ─────────────────────────────────────────────
   {
     id: "colors_1",
     categoryId: "colors",
@@ -80,9 +77,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // LETTERS 1
-  // ─────────────────────────────────────────────
   {
     id: "letters_1",
     categoryId: "letters",
@@ -131,15 +125,12 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // SHAPES 1
-  // ─────────────────────────────────────────────
   {
     id: "shapes_1",
     categoryId: "shapes",
     title: "Discover fun shapes",
     subtitle: "Shapes",
-    backgroundColor: "#99C2FF", // More saturated blue
+    backgroundColor: "#99C2FF",
     iconName: "shapes-outline",
     illustration: require("@/assets/illustrations/letters-learning-illustration.svg"),
     progressPercentage: 20,
@@ -168,9 +159,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // ANIMALS 1
-  // ─────────────────────────────────────────────
   {
     id: "animals_1",
     categoryId: "animals",
@@ -205,9 +193,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // COLORS 2
-  // ─────────────────────────────────────────────
   {
     id: "colors_2",
     categoryId: "colors",
@@ -235,9 +220,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // LETTERS 2
-  // ─────────────────────────────────────────────
   {
     id: "letters_2",
     categoryId: "letters",
@@ -272,15 +254,12 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // SHAPES 2
-  // ─────────────────────────────────────────────
   {
     id: "shapes_2",
     categoryId: "shapes",
     title: "Match shapes around you",
     subtitle: "Shapes",
-    backgroundColor: "#99C2FF", // More saturated blue
+    backgroundColor: "#99C2FF",
     iconName: "shapes-outline",
     illustration: require("@/assets/illustrations/colors-learning-illustration.svg"),
     progressPercentage: 0,
@@ -302,9 +281,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // ANIMALS 2
-  // ─────────────────────────────────────────────
   {
     id: "animals_2",
     categoryId: "animals",
@@ -332,9 +308,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // COLORS 3
-  // ─────────────────────────────────────────────
   {
     id: "colors_3",
     categoryId: "colors",
@@ -362,9 +335,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // LETTERS 3
-  // ─────────────────────────────────────────────
   {
     id: "letters_3",
     categoryId: "letters",
@@ -392,9 +362,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // ANIMALS 3
-  // ─────────────────────────────────────────────
   {
     id: "animals_3",
     categoryId: "animals",
@@ -422,9 +389,6 @@ export const LESSONS: Lesson[] = [
     ],
   },
 
-  // ─────────────────────────────────────────────
-  // COLORS 4
-  // ─────────────────────────────────────────────
   {
     id: "colors_4",
     categoryId: "colors",

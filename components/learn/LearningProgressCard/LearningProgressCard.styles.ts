@@ -1,52 +1,72 @@
 import { colors, radii, spacing, typography } from "@/theme";
+
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    marginHorizontal: spacing.xl,
-    marginTop: -45,
-    backgroundColor: "rgba(255, 255, 255, 0.85)",
-    borderRadius: radii.xl,
+    backgroundColor: "#FFFFFF66",
+    borderRadius: 25,
     padding: spacing.md,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
     zIndex: 10,
-    borderWidth: 1,
-    borderColor: "rgba(255, 255, 255, 0.5)",
+    overflow: "hidden",
+    marginTop: 20,
   },
+
   leftSection: {
     flexDirection: "row",
     alignItems: "center",
     gap: spacing.sm,
   },
+
   buddyIcon: {
-    width: 44,
-    height: 44,
+    width: 46,
+    height: 47,
   },
+
   buddyLabel: {
-    color: colors.text.secondary,
-    fontSize: typography.fontSize.xs,
+    color: "#01000080",
+    fontSize: 12,
+    fontFamily: typography.fonts.regular,
+  },
+
+  textView: {
+    gap: 4,
+  },
+
+  buddyMessage: {
+    color: "#010000",
+    fontSize: 14,
     fontFamily: typography.fonts.medium,
   },
-  buddyMessage: {
-    color: colors.primary,
-    fontSize: typography.fontSize.md,
-    fontFamily: typography.fonts.bold,
-  },
+
   progressCircle: {
-    width: 52,
-    height: 52,
+    width: 38,
+    height: 38,
     borderRadius: radii.full,
-    borderWidth: 4,
-    borderColor: "#72A95F",
     alignItems: "center",
     justifyContent: "center",
     backgroundColor: colors.surface,
   },
+
+  progressSvg: {
+    position: "absolute",
+  },
+
   progressText: {
-    fontSize: typography.fontSize.sm,
-    fontFamily: typography.fonts.bold,
+    fontSize: 12,
+    fontFamily: typography.fonts.regular,
     color: colors.primary,
+  },
+
+  circleWrapper: {
+    width: 47,
+    height: 47,
+    backgroundColor: "rgba(244, 243, 243, 0.7)",
+    alignItems: "center",
+    justifyContent: "center",
+    borderRadius: radii.full,
   },
 });

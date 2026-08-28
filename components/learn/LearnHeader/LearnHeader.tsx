@@ -1,5 +1,7 @@
+import { LearningProgressCard } from "@/components/learn/LearningProgressCard/LearningProgressCard";
 import { colors, spacing } from "@/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
 import React from "react";
@@ -14,6 +16,7 @@ interface LearnHeaderProps {
   durationString: string;
   themeColor: string;
   illustration: any;
+  progressPercentage: number;
 }
 
 export function LearnHeader({
@@ -23,6 +26,7 @@ export function LearnHeader({
   durationString,
   themeColor,
   illustration,
+  progressPercentage,
 }: LearnHeaderProps) {
   const router = useRouter();
   const insets = useSafeAreaInsets();
@@ -31,25 +35,30 @@ export function LearnHeader({
     <View
       style={[
         styles.container,
-        { backgroundColor: themeColor, paddingTop: insets.top + spacing.md },
+        {
+          backgroundColor: themeColor,
+          paddingTop: insets.top + spacing.md,
+        },
       ]}
     >
       <Pressable style={styles.backButton} onPress={() => router.back()}>
-        <Ionicons name="arrow-back" size={24} color={colors.primary} />
+        <Ionicons name="arrow-back" size={24} />
       </Pressable>
 
       <Text style={styles.subtitle}>{subtitle}</Text>
+
       <Text style={styles.title}>{title}</Text>
 
       <View style={styles.metaTags}>
-        <View style={styles.tag}>
+        <BlurView intensity={10} tint="default" style={styles.tag}>
           <Ionicons name="book-outline" size={14} color={colors.primary} />
           <Text style={styles.tagText}>{lessonCount} lessons</Text>
-        </View>
-        <View style={styles.tag}>
+        </BlurView>
+
+        <BlurView intensity={10} tint="default" style={styles.tag}>
           <Ionicons name="time-outline" size={14} color={colors.primary} />
           <Text style={styles.tagText}>{durationString}</Text>
-        </View>
+        </BlurView>
       </View>
 
       <Image
@@ -57,6 +66,8 @@ export function LearnHeader({
         style={styles.illustration}
         contentFit="contain"
       />
+
+      <LearningProgressCard percentage={progressPercentage} />
     </View>
   );
 }

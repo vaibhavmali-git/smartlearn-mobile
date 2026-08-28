@@ -18,14 +18,12 @@ export function OnboardingScreen({
     <ScreenContainer scrollable={false} backgroundColor="#FFFFFF">
       <View style={styles.container}>
         <View style={styles.header}>
-          {/* Decorative background arch */}
           <Image
             source={require("@/assets/illustrations/abstract-background-shape.svg")}
             style={styles.backgroundArch}
             contentFit="contain"
           />
 
-          {/* Logo */}
           <View style={styles.logoBadge}>
             <Image
               source={require("@/assets/icons/logo_book.svg")}

@@ -1,6 +1,5 @@
 import { Button } from "@/components/common/Button";
 import { LearnHeader } from "@/components/learn/LearnHeader/LearnHeader";
-import { LearningProgressCard } from "@/components/learn/LearningProgressCard/LearningProgressCard";
 import { LessonItem } from "@/components/learn/LessonItem/LessonItem";
 import { useLessonProgress } from "@/hooks/useLessonProgress";
 import { colors } from "@/theme";
@@ -96,9 +95,8 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
           durationString={durationString}
           themeColor={course.backgroundColor}
           illustration={course.illustration}
+          progressPercentage={course.progressPercentage}
         />
-
-        <LearningProgressCard percentage={course.progressPercentage} />
 
         <View style={styles.listContainer}>
           {course.nodes.map((node, index) => (
