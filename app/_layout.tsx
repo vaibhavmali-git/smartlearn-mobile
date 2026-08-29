@@ -1,13 +1,6 @@
 import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import { colors } from "@/theme/colors";
-import {
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    Inter_900Black,
-    useFonts,
-} from "@expo-google-fonts/inter";
+import { useFonts } from "expo-font";
 import { Slot, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import React, { useEffect } from "react";
@@ -22,9 +15,14 @@ function NavigationGuard() {
 
   useEffect(() => {
     if (isLoading) return;
+
     const inAuthGroup = segments[0] === "(auth)";
-    if (!isAuthenticated && !inAuthGroup) router.replace("/(auth)");
-    else if (isAuthenticated && inAuthGroup) router.replace("/(tabs)");
+
+    if (!isAuthenticated && !inAuthGroup) {
+      router.replace("/(auth)");
+    } else if (isAuthenticated && inAuthGroup) {
+      router.replace("/(tabs)");
+    }
   }, [isAuthenticated, isLoading, segments, router]);
 
   if (isLoading) {
@@ -47,11 +45,11 @@ function NavigationGuard() {
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    Inter_900Black,
+    InterDisplay_400Regular: require("../assets/fonts/InterDisplay-Regular.ttf"),
+    InterDisplay_500Medium: require("../assets/fonts/InterDisplay-Medium.ttf"),
+    InterDisplay_600SemiBold: require("../assets/fonts/InterDisplay-SemiBold.ttf"),
+    InterDisplay_700Bold: require("../assets/fonts/InterDisplay-Bold.ttf"),
+    InterDisplay_900Black: require("../assets/fonts/InterDisplay-Black.ttf"),
   });
 
   useEffect(() => {
@@ -60,7 +58,9 @@ export default function RootLayout() {
     }
   }, [fontsLoaded, fontError]);
 
-  if (!fontsLoaded && !fontError) return null;
+  if (!fontsLoaded && !fontError) {
+    return null;
+  }
 
   return (
     <AuthProvider>
