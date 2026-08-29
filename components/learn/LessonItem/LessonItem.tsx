@@ -1,5 +1,7 @@
 import { CourseNode } from "@/types/lesson";
 import { Ionicons } from "@expo/vector-icons";
+import { Tick01Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import React from "react";
 import { Pressable, Text, View } from "react-native";
@@ -37,7 +39,7 @@ export function LessonItem({
 
   const progressPercent = 0.3;
   const circleSize = 56;
-  const strokeWidth = 4;
+  const strokeWidth = 6;
   const radius = (circleSize - strokeWidth) / 2;
   const circumference = 2 * Math.PI * radius;
   const progressStrokeDashoffset = circumference * (1 - progressPercent);
@@ -48,7 +50,12 @@ export function LessonItem({
         <View style={styles.circleIndicator}>
           <View style={styles.circleCompletedOuter}>
             <View style={styles.circleCompletedInner}>
-              <Ionicons name="checkmark" size={24} color="#FFFFFF" />
+              <HugeiconsIcon
+                icon={Tick01Icon}
+                size={23}
+                color="#FFFFFF"
+                strokeWidth={1.5}
+              />
             </View>
           </View>
         </View>
@@ -67,7 +74,7 @@ export function LessonItem({
               cx={circleSize / 2}
               cy={circleSize / 2}
               r={radius}
-              stroke="#E5E7EB"
+              stroke="#F0F0F0"
               strokeWidth={strokeWidth}
               fill="none"
             />
@@ -75,7 +82,7 @@ export function LessonItem({
               cx={circleSize / 2}
               cy={circleSize / 2}
               r={radius}
-              stroke="#72A95F"
+              stroke="#7CA62B"
               strokeWidth={strokeWidth}
               fill="none"
               strokeDasharray={circumference}
@@ -94,7 +101,9 @@ export function LessonItem({
     return (
       <View style={styles.circleIndicator}>
         <View style={styles.circleLockedOuter}>
-          <Text style={styles.circleTextLocked}>{index + 1}</Text>
+          <View style={styles.circleLockedInner}>
+            <Text style={styles.circleTextLocked}>{index + 1}</Text>
+          </View>
         </View>
       </View>
     );
@@ -125,9 +134,9 @@ export function LessonItem({
               <View style={[styles.lineBottom, styles.lineActive]} />
             ) : isCurrent && nextNodeStatus === "locked" ? (
               <LinearGradient
-                colors={["#72A95F", "#B8D4AD", "#D5D5D5", "#F0F0F0"]}
+                colors={["#7CA62B", "#F0F0F0"]}
                 style={styles.lineBottom}
-                start={{ x: 0, y: 0 }}
+                start={{ x: 12, y: 0 }}
                 end={{ x: 0, y: 1 }}
               />
             ) : isLocked ? (

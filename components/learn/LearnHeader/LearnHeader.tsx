@@ -48,7 +48,7 @@ export function LearnHeader({
           icon={ArrowLeft02Icon}
           size={24}
           color="#010000"
-          strokeWidth={2}
+          strokeWidth={1.5}
         />
       </Pressable>
 
