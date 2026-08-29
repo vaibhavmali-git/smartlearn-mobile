@@ -6,7 +6,8 @@ I built SmartLearn React Native application to practice building a clean and mai
 
 Here is a quick look at the app and its main flows:
 
-**[Watch App Walkthrough](https://drive.google.com/file/d/1RS-RKAoxLdV18-VIn1NiolGDAXrBcB3w/view?usp=sharing)**
+**App Walkthrough video:**  
+https://drive.google.com/file/d/1RS-RKAoxLdV18-VIn1NiolGDAXrBcB3w/view?usp=sharing
 
 Below are the core screens implemented based on the provided design specifications:
 
@@ -22,11 +23,50 @@ Below are the core screens implemented based on the provided design specificatio
   <img src="./docs/profile-screen.png" width="250" />
 </p>
 
+## Project Structure
+
+```text
+smartlearn-mobile/
+├── app/
+│   ├── (auth)/
+│   ├── (tabs)/
+│   ├── learn/
+│   └── _layout.tsx
+├── assets/
+├── components/
+├── data/
+├── hooks/
+├── screens/
+│   ├── ai/
+│   ├── analytics/
+│   ├── auth/
+│   ├── home/
+│   ├── learn/
+│   └── profile/
+├── theme/
+├── styles/
+├── types/
+├── utils/
+├── docs/
+├── app.json
+├── package.json
+└── README.md
+```
+
 ## How to Run the Project Locally
 
+**Repository:** https://github.com/vaibhavmali-git/smartlearn-mobile
+
 1. Make sure you have Node.js installed, along with either the iOS Simulator or Android Emulator.
-2. Clone the repository and navigate into the project folder.
-3. Install the dependencies:
+
+2. Clone the repository:
+
+   ```bash
+   git clone https://github.com/vaibhavmali-git/smartlearn-mobile.git
+   cd smartlearn-mobile
+   ```
+
+3. Install dependencies:
 
    ```bash
    npm install
@@ -38,11 +78,15 @@ Below are the core screens implemented based on the provided design specificatio
    npx expo start
    ```
 
-5. Press `i` to open the app in the iOS Simulator, or `a` to open it in the Android Emulator.
+5. Launch the app:
+   - Press `i` for the iOS Simulator.
+   - Press `a` for the Android Emulator.
 
 ## Decisions and Assumptions
 
 While building SmartLearn, I made a few architectural choices to keep the codebase maintainable while staying close to the provided designs:
+
+- **Additional Screens:** Some screens, including the **AI Coach, Login, Signup, and Profile** screens, were not provided in the Figma designs. I designed and implemented these screens independently, taking visual and interaction inspiration from the provided designs.
 
 - **File-based Routing:** I used Expo Router for navigation. This keeps routing concerns separate from the UI and makes it straightforward to manage authenticated and unauthenticated routes through layout files.
 
