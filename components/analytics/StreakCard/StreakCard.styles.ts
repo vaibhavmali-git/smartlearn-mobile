@@ -7,7 +7,7 @@ export const styles = StyleSheet.create({
     borderRadius: 32,
     paddingVertical: 13,
     paddingHorizontal: 12,
-    marginBottom: spacing.xl,
+    marginBottom: spacing.sm,
     minHeight: 179,
   },
   headerRow: {

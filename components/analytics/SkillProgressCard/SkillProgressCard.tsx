@@ -1,10 +1,9 @@
 import { SkillData } from "@/data/analytics";
 import { Category } from "@/data/lessons";
-import { colors } from "@/theme";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
-import Svg, { Defs, Line, Pattern, Rect } from "react-native-svg";
+import Svg, { Defs, Pattern, Rect } from "react-native-svg";
 import { styles } from "./SkillProgressCard.styles";
 
 interface SkillProgressCardProps {
@@ -29,7 +28,7 @@ export function SkillProgressCard({
         </View>
         <View style={styles.dropdown}>
           <Text style={styles.dropdownText}>This Week</Text>
-          <Ionicons name="chevron-down" size={14} color={colors.primary} />
+          <Ionicons name="chevron-down" size={14} color="#073647" />
         </View>
       </View>
 
@@ -82,7 +81,7 @@ export function SkillProgressCard({
               ) : (
                 <View style={[styles.bar, { height: `${barHeight}%` }]}>
                   <Svg
-                    width="32"
+                    width="42"
                     height="100%"
                     style={styles.stripedPattern}
                     preserveAspectRatio="none"
@@ -91,23 +90,17 @@ export function SkillProgressCard({
                       <Pattern
                         id={`diagonalStripes-${index}`}
                         patternUnits="userSpaceOnUse"
-                        width="4"
+                        width="5"
                         height="4"
-                        patternTransform="rotate(45)"
+                        patternTransform="rotate(1)"
                       >
-                        <Rect
-                          x="0"
-                          y="0"
-                          width="2"
-                          height="4"
-                          fill="#1E3A5F"
-                        />
+                        <Rect x="0" y="0" width="1" height="4" fill="#1E3A5F" />
                       </Pattern>
                     </Defs>
                     <Rect
                       x="0"
                       y="0"
-                      width="32"
+                      width="42"
                       height="100%"
                       fill={`url(#diagonalStripes-${index})`}
                       rx="16"
