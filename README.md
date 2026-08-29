@@ -1,50 +1,49 @@
-# Welcome to your Expo app 👋
+# SmartLearn
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+I built SmartLearn React Native application to practice building a clean and maintainable mobile app architecture.
 
-## Get started
+## App Walkthrough & Screenshots
 
-1. Install dependencies
+Here is a quick look at the app and its main flows:
+
+**[Watch App Walkthrough](./docs/app-walkthrough.mov)**
+
+Below are the core screens implemented based on the provided design specifications:
+
+| :---: | :---: | :---: |
+| <img src="./docs/onboarding.png" width="250" /> | <img src="./docs/home.png" width="250" /> | <img src="./docs/learn-screen.png" width="250" /> |
+
+| :---: | :---: | :---: |
+| <img src="./docs/analytics-screen.png" width="250" /> | <img src="./docs/aibuddy-screen.png" width="250" /> | <img src="./docs/profile-screen.png" width="250" /> |
+
+## How to Run the Project Locally
+
+1. Make sure you have Node.js installed, along with either the iOS Simulator or Android Emulator.
+2. Clone the repository and navigate into the project folder.
+3. Install the dependencies:
 
    ```bash
    npm install
    ```
 
-2. Start the app
+4. Start the Expo development server:
 
    ```bash
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+5. Press `i` to open the app in the iOS Simulator, or `a` to open it in the Android Emulator.
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Decisions and Assumptions
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+While building SmartLearn, I made a few architectural choices to keep the codebase maintainable while staying close to the provided designs:
 
-## Get a fresh project
+- **File-based Routing:** I used Expo Router for navigation. This keeps routing concerns separate from the UI and makes it straightforward to manage authenticated and unauthenticated routes through layout files.
 
-When you're ready, run:
+- **Mock Authentication:** Since there is no backend provided for this assignment, I implemented a custom `useAuth` hook backed by `AsyncStorage`. It simulates the login and signup flow, handles basic validation, and persists the user's session when the app is restarted.
 
-```bash
-npm run reset-project
-```
+- **Custom Bottom Tab Bar:** The default navigation tab bar didn't match the floating, pill-shaped design from the provided screenshots, so I built a custom `BottomTabBar` component and integrated it with Expo Router while keeping the navigation state intact.
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- **Design System & Styling:** I set up a centralized theme for colors, spacing, radii, and typography. Components follow a consistent structure with their markup and logic separated from their styles using `.styles.ts` files.
 
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- **Typography:** I used **Inter Display** throughout the app to closely match the typography in the provided designs. The required font weights are loaded locally through Expo so typography remains consistent across platforms.
