@@ -8,7 +8,6 @@ export const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingVertical: 15,
     marginBottom: spacing.xxl,
-    // minHeight: 480,
   },
   headerRow: {
     flexDirection: "row",
@@ -77,7 +76,6 @@ export const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "flex-end",
     height: 204,
-    // paddingHorizontal: 16,
     marginBottom: 13,
     gap: 4,
   },

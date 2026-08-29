@@ -1,3 +1,4 @@
+import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import React from "react";
 import { Text, View } from "react-native";
@@ -11,17 +12,23 @@ export function AICoachCard() {
         style={styles.backgroundArch}
         contentFit="contain"
       />
-      <View style={styles.row}>
-        <View style={styles.buddyIconContainer}>
-          <Image
-            source={require("@/assets/icons/logo-ai-buddy.png")}
-            style={styles.buddyIcon}
-            contentFit="contain"
-          />
+
+      <View style={styles.headerRow}>
+        <Image
+          source={require("@/assets/icons/logo-ai-buddy.png")}
+          style={styles.buddyIcon}
+          contentFit="contain"
+        />
+        <View style={styles.textView}>
+          <Text style={styles.buddyLabel}>Your A.i coach</Text>
+          <Text style={styles.buddyMessage}>Hi there!</Text>
         </View>
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>Hi there!</Text>
-          <Text style={styles.message}>
+      </View>
+
+      <View style={styles.messageSection}>
+        <BlurView intensity={12} tint="default" style={styles.messageBlur} />
+        <View style={styles.messageContent}>
+          <Text style={styles.messageText}>
             I&apos;m your AI Buddy. Let&apos;s make today&apos;s learning even
             better! What should we practice?
           </Text>

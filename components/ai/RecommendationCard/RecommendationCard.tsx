@@ -15,30 +15,44 @@ export function RecommendationCard({
   onPress,
 }: RecommendationCardProps) {
   return (
-    <Pressable style={styles.card} onPress={onPress}>
-      <View
-        style={[
-          styles.iconBadge,
-          { backgroundColor: recommendation.themeColor },
-        ]}
-      >
-        <Ionicons
-          name={recommendation.iconName}
-          size={20}
-          color={colors.primary}
-        />
+    <Pressable
+      style={[
+        styles.card,
+        { backgroundColor: recommendation.themeColor || "#F4EFD7" },
+      ]}
+      onPress={onPress}
+    >
+      <View style={styles.cardTop}>
+        <View style={styles.titleWrapper}>
+          <View style={styles.iconBadge}>
+            <Ionicons
+              name={recommendation.iconName}
+              size={18}
+              color={colors.primary}
+            />
+          </View>
+          <Text style={styles.title} numberOfLines={1}>
+            {recommendation.title}
+          </Text>
+        </View>
+
+        <View style={styles.durationPill}>
+          <Ionicons name="time-outline" size={12} color="#073647" />
+          <Text style={styles.durationText}>
+            {recommendation.durationMinutes} min
+          </Text>
+        </View>
       </View>
 
-      <View style={styles.textContainer}>
-        <Text style={styles.title}>{recommendation.title}</Text>
-        <Text style={styles.subtitle}>{recommendation.subtitle}</Text>
-      </View>
-
-      <View style={styles.durationContainer}>
-        <Ionicons name="flash" size={12} color={colors.warning} />
-        <Text style={styles.durationText}>
-          {recommendation.durationMinutes}m
+      <View style={styles.bottomRow}>
+        <Text style={styles.subtitle} numberOfLines={2}>
+          {recommendation.subtitle}
         </Text>
+
+        <View style={styles.actionButton}>
+          <Text style={styles.actionText}>Practice</Text>
+          <Ionicons name="play-circle" size={26} color="#161A34" />
+        </View>
       </View>
     </Pressable>
   );

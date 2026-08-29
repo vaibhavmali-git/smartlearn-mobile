@@ -31,7 +31,7 @@ export interface ScreenContainerProps {
 
 export function ScreenContainer({
   children,
-  scrollable = false,
+  scrollable = true,
   backgroundColor = colors.surface,
   style,
   contentContainerStyle,

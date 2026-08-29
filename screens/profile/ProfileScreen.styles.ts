@@ -2,25 +2,45 @@ import { colors, radii, spacing, typography } from "@/theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  scrollContent: {
+    paddingTop: spacing.sm,
+    paddingBottom: spacing.xxl,
+    paddingHorizontal: 4,
+  },
   header: {
-    marginTop: spacing.sm,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginBottom: spacing.xl,
   },
   title: {
-    fontSize: 34,
-    fontFamily: typography.fonts.heavy,
-    color: colors.primary,
+    fontSize: 28,
+    fontFamily: typography.fonts.medium,
+    color: "#010000",
     letterSpacing: -0.5,
   },
-  sectionTitle: {
-    fontSize: typography.fontSize.sm,
-    fontFamily: typography.fonts.bold,
-    color: colors.text.muted,
-    textTransform: "uppercase",
-    letterSpacing: 1,
-    marginBottom: spacing.md,
-    marginTop: spacing.lg,
-    marginLeft: spacing.xs,
+  bellBadge: {
+    width: 44,
+    height: 44,
+    borderRadius: radii.full,
+    backgroundColor: "#F0EFEF66",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+  },
+  notificationDot: {
+    position: "absolute",
+    top: 10,
+    right: 12,
+    width: 8,
+    height: 8,
+    backgroundColor: "#F22138",
+    borderRadius: radii.full,
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+  },
+  listContainer: {
+    marginTop: spacing.md,
   },
   modalOverlay: {
     flex: 1,
@@ -30,13 +50,13 @@ export const styles = StyleSheet.create({
   },
   modalContent: {
     backgroundColor: colors.surface,
-    borderRadius: radii.xl,
+    borderRadius: 27,
     padding: spacing.xl,
   },
   modalTitle: {
-    fontSize: typography.fontSize.xl,
-    fontFamily: typography.fonts.bold,
-    color: colors.primary,
+    fontSize: 20,
+    fontFamily: typography.fonts.medium,
+    color: "#010000",
     marginBottom: spacing.lg,
   },
   modalActions: {

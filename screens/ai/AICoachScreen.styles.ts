@@ -1,27 +1,51 @@
-import { colors, spacing, typography } from "@/theme";
+import { radii, spacing, typography } from "@/theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   header: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
     marginTop: spacing.sm,
     marginBottom: spacing.xl,
+    paddingHorizontal: 4,
   },
   title: {
-    fontSize: 34,
-    fontFamily: typography.fonts.heavy,
-    color: colors.primary,
+    fontSize: 28,
+    fontFamily: typography.fonts.medium,
+    color: "#010000",
     letterSpacing: -0.5,
   },
   subtitle: {
-    fontSize: typography.fontSize.sm,
+    fontSize: 14,
     fontFamily: typography.fonts.medium,
-    color: colors.text.secondary,
+    color: "#708892",
     marginTop: 4,
   },
+  bellBadge: {
+    width: 44,
+    height: 44,
+    borderRadius: radii.full,
+    backgroundColor: "#F0EFEF66",
+    alignItems: "center",
+    justifyContent: "center",
+    position: "relative",
+  },
+  notificationDot: {
+    position: "absolute",
+    top: 10,
+    right: 12,
+    width: 8,
+    height: 8,
+    backgroundColor: "#F22138",
+    borderRadius: radii.full,
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+  },
   sectionTitle: {
-    fontSize: typography.fontSize.lg,
-    fontFamily: typography.fonts.bold,
-    color: colors.primary,
+    fontSize: 26,
+    fontFamily: typography.fonts.medium,
+    color: "#010000",
     marginBottom: spacing.md,
     marginTop: spacing.md,
   },

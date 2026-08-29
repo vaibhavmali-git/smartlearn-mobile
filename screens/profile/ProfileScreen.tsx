@@ -4,13 +4,16 @@ import { ScreenContainer } from "@/components/common/ScreenContainer";
 import { ProfileHeader } from "@/components/profile/ProfileHeader/ProfileHeader";
 import { SettingRow } from "@/components/profile/SettingRow/SettingRow";
 import { useAuth } from "@/hooks/useAuth";
+import { colors } from "@/theme";
+import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import React, { useState } from "react";
-import { Modal, Text, View } from "react-native";
+import { Modal, ScrollView, Text, View } from "react-native";
 import { styles } from "./ProfileScreen.styles";
 
 export function ProfileScreen() {
   const { user, logout, updateUser } = useAuth();
-  const [notificationsEnabled, setNotificationsEnabled] = useState(true);
+  const router = useRouter();
   const [isEditModalVisible, setIsEditModalVisible] = useState(false);
   const [editNameValue, setEditNameValue] = useState("");
 
@@ -27,36 +30,54 @@ export function ProfileScreen() {
   };
 
   return (
-    <ScreenContainer scrollable hasTabBar backgroundColor="#FFFFFF">
-      <View style={styles.header}>
-        <Text style={styles.title}>Profile</Text>
-      </View>
+    <ScreenContainer scrollable hasTabBar>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
+        <View style={styles.header}>
+          <Text style={styles.title}>Profile</Text>
+          <View style={styles.bellBadge}>
+            <Ionicons
+              name="notifications-outline"
+              size={24}
+              color={colors.primary}
+            />
+            <View style={styles.notificationDot} />
+          </View>
+        </View>
 
-      <ProfileHeader user={user} />
+        <ProfileHeader user={user} />
 
-      <Text style={styles.sectionTitle}>Account</Text>
-      <SettingRow
-        icon="person-outline"
-        label="Edit Name"
-        onPress={handleOpenEdit}
-      />
-
-      <Text style={styles.sectionTitle}>Settings</Text>
-      <SettingRow
-        icon="notifications-outline"
-        label="Notifications"
-        isToggle
-        toggleValue={notificationsEnabled}
-        onToggle={setNotificationsEnabled}
-      />
-
-      <Text style={styles.sectionTitle}>Session</Text>
-      <SettingRow
-        icon="log-out-outline"
-        label="Log Out"
-        isDanger
-        onPress={logout}
-      />
+        <View style={styles.listContainer}>
+          <SettingRow
+            icon="person-outline"
+            label="Personal Information"
+            onPress={handleOpenEdit}
+          />
+          <SettingRow
+            icon="bar-chart-outline"
+            label="My Progress"
+            onPress={() => console.log("Route to Progress")}
+          />
+          <SettingRow
+            icon="trophy-outline"
+            label="Achievements"
+            onPress={() => console.log("Route to Achievements")}
+          />
+          <SettingRow
+            icon="settings-outline"
+            label="Settings"
+            onPress={() => console.log("Route to Settings")}
+          />
+          <SettingRow
+            icon="help-circle-outline"
+            label="Help & Support"
+            onPress={() => console.log("Route to Help")}
+          />
+          <SettingRow icon="log-out-outline" label="Logout" onPress={logout} />
+        </View>
+      </ScrollView>
 
       <Modal visible={isEditModalVisible} transparent animationType="fade">
         <View style={styles.modalOverlay}>

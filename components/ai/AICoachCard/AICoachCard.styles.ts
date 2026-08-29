@@ -1,61 +1,65 @@
-import { colors, radii, spacing, typography } from "@/theme";
+import { spacing, typography } from "@/theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   card: {
-    backgroundColor: "#D7E8FC",
-    borderRadius: 32,
-    padding: spacing.xl,
+    backgroundColor: "#EAF1F9",
+    borderRadius: 27,
+    paddingTop: 14,
     marginBottom: spacing.xl,
-    overflow: "hidden",
     position: "relative",
-    minHeight: 160,
-    justifyContent: "center",
   },
   backgroundArch: {
     position: "absolute",
     top: -20,
-    right: -20,
-    width: 150,
-    height: 150,
+    right: -10,
+    width: 140,
+    height: 140,
     opacity: 0.1,
   },
-  row: {
+  headerRow: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.md,
-    zIndex: 2,
-  },
-  buddyIconContainer: {
-    width: 64,
-    height: 64,
-    borderRadius: radii.full,
-    backgroundColor: colors.surface,
-    alignItems: "center",
-    justifyContent: "center",
-    shadowColor: colors.primary,
-    shadowOffset: { width: 0, height: 4 },
-    shadowOpacity: 0.05,
-    shadowRadius: 10,
-    elevation: 2,
+    gap: 8,
+    marginBottom: 12,
+    paddingHorizontal: spacing.md,
   },
   buddyIcon: {
-    width: 36,
-    height: 36,
+    width: 46,
+    height: 47,
   },
-  textContainer: {
+  textView: {
     flex: 1,
+    gap: 4,
   },
-  title: {
-    fontSize: typography.fontSize.xl,
-    fontFamily: typography.fonts.heavy,
-    color: colors.primary,
-    marginBottom: 4,
+  buddyLabel: {
+    color: "#708892",
+    fontSize: 11,
+    fontFamily: typography.fonts.regular,
   },
-  message: {
-    fontSize: typography.fontSize.sm,
+  buddyMessage: {
+    color: "#010000",
+    fontSize: 16,
     fontFamily: typography.fonts.medium,
-    color: "rgba(22, 27, 51, 0.7)",
-    lineHeight: 20,
+  },
+  messageSection: {
+    overflow: "hidden",
+    borderRadius: 24,
+    marginHorizontal: 2,
+    marginVertical: 2,
+  },
+  messageBlur: {
+    ...StyleSheet.absoluteFillObject,
+  },
+  messageContent: {
+    backgroundColor: "rgba(255, 255, 255, 0.7)",
+    paddingVertical: 16,
+    paddingHorizontal: 20,
+  },
+  messageText: {
+    color: "#010000",
+    fontSize: 14,
+    fontFamily: typography.fonts.medium,
+    lineHeight: 22,
   },
 });

@@ -18,13 +18,13 @@ export function AnalyticsScreen() {
   } = useAnalytics();
 
   return (
-    <ScreenContainer scrollable hasTabBar backgroundColor="#FFFFFF">
+    <ScreenContainer scrollable hasTabBar>
       <View style={styles.header}>
         <Text style={styles.title}>Analytics</Text>
         <View style={styles.bellBadge}>
           <Ionicons
             name="notifications-outline"
-            size={22}
+            size={24}
             color={colors.primary}
           />
           <View style={styles.notificationDot} />

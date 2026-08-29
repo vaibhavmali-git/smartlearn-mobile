@@ -1,51 +1,53 @@
-import { colors, radii, spacing, typography } from "@/theme";
+import { typography } from "@/theme";
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
+  card: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    backgroundColor: colors.surface,
-    padding: spacing.lg,
-    borderRadius: radii.xl,
-    marginBottom: spacing.sm,
-    borderWidth: 1,
-    borderColor: colors.border.light,
+    backgroundColor: "#F1F1F180",
+    borderRadius: 22,
+    paddingVertical: 12,
+    paddingHorizontal: 16,
+    marginBottom: 10,
   },
-  dangerContainer: {
-    borderColor: "rgba(229, 57, 53, 0.3)",
-    backgroundColor: "rgba(229, 57, 53, 0.05)",
+  dangerCard: {
+    backgroundColor: "#FFE9E9",
+    borderColor: "#FFE9E9",
   },
   leftSection: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.md,
+    gap: 16,
   },
   iconBadge: {
-    width: 40,
-    height: 40,
-    borderRadius: radii.full,
-    backgroundColor: colors.surfaceSubtle,
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    backgroundColor: "#ffffff",
     alignItems: "center",
     justifyContent: "center",
   },
+  dangerIconBadge: {
+    backgroundColor: "#FFFFFF80",
+  },
   label: {
-    fontSize: typography.fontSize.md,
-    fontFamily: typography.fonts.semiBold,
-    color: colors.primary,
+    fontSize: 14,
+    fontFamily: typography.fonts.medium,
+    color: "#010000",
   },
   dangerLabel: {
-    color: colors.error,
+    color: "#E53935",
   },
   rightSection: {
     flexDirection: "row",
     alignItems: "center",
-    gap: spacing.sm,
+    gap: 8,
   },
   value: {
-    fontSize: typography.fontSize.sm,
+    fontSize: 14,
     fontFamily: typography.fonts.medium,
-    color: colors.text.secondary,
+    color: "#708892",
   },
 });

@@ -32,7 +32,6 @@ export const styles = StyleSheet.create({
   currentCount: {
     fontSize: 12,
     fontFamily: typography.fonts.medium,
-    // color: colors.primary,
   },
   targetCount: {
     fontSize: 12,

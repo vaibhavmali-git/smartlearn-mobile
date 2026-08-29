@@ -88,7 +88,7 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
         translucent
       />
 
-      <ScrollView bounces={false} showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <LearnHeader
           title={course.title}
           subtitle={course.subtitle}

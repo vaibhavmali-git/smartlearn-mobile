@@ -27,16 +27,16 @@ export function SettingRow({
 }: SettingRowProps) {
   return (
     <Pressable
-      style={[styles.container, isDanger && styles.dangerContainer]}
+      style={[styles.card, isDanger && styles.dangerCard]}
       onPress={onPress}
       disabled={!onPress && !isToggle}
     >
       <View style={styles.leftSection}>
-        <View style={styles.iconBadge}>
+        <View style={[styles.iconBadge, isDanger && styles.dangerIconBadge]}>
           <Ionicons
             name={icon}
-            size={20}
-            color={isDanger ? colors.error : colors.primary}
+            size={18}
+            color={isDanger ? "#E53935" : colors.primary}
           />
         </View>
         <Text style={[styles.label, isDanger && styles.dangerLabel]}>
@@ -52,16 +52,16 @@ export function SettingRow({
             value={toggleValue}
             onValueChange={onToggle}
             trackColor={{
-              false: colors.border.medium,
-              true: colors.pastel.limeDark,
+              false: "#E8E8E8",
+              true: "#DCEA8F",
             }}
             thumbColor="#FFFFFF"
           />
         ) : (
           <Ionicons
             name="chevron-forward"
-            size={20}
-            color={isDanger ? colors.error : colors.text.muted}
+            size={18}
+            color={isDanger ? "#E53935" : "#708892"}
           />
         )}
       </View>
