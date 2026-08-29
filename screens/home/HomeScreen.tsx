@@ -40,7 +40,12 @@ export function HomeScreen() {
           <LessonCard
             key={lesson.id}
             lesson={lesson}
-            onPress={() => router.push(`/learn/${lesson.id}`)}
+            onPress={() =>
+              router.push({
+                pathname: "/learn/[lessonId]",
+                params: { lessonId: lesson.id },
+              })
+            }
           />
         ))}
       </ScrollView>
