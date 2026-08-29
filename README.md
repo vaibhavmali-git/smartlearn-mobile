@@ -6,7 +6,7 @@ I built SmartLearn React Native application to practice building a clean and mai
 
 Here is a quick look at the app and its main flows:
 
-**[Watch App Walkthrough](./docs/app-walkthrough.mov)**
+**[Watch App Walkthrough](https://drive.google.com/file/d/1RS-RKAoxLdV18-VIn1NiolGDAXrBcB3w/view?usp=sharing)**
 
 Below are the core screens implemented based on the provided design specifications:
 
