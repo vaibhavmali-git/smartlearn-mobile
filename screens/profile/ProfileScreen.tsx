@@ -74,7 +74,13 @@ export function ProfileScreen() {
             label="Help & Support"
             onPress={() => console.log("Route to Help")}
           />
-          <SettingRow icon="log-out-outline" label="Logout" onPress={logout} />
+          {/* Added the isDanger prop here */}
+          <SettingRow
+            icon="log-out-outline"
+            label="Logout"
+            isDanger
+            onPress={logout}
+          />
         </View>
       </ScrollView>
 
