@@ -3,7 +3,7 @@ import { Category } from "@/data/lessons";
 import { Ionicons } from "@expo/vector-icons";
 import React from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
-import Svg, { Defs, Pattern, Rect } from "react-native-svg";
+import Svg, { Defs, Line, Pattern, Rect } from "react-native-svg";
 import { styles } from "./SkillProgressCard.styles";
 
 interface SkillProgressCardProps {
@@ -88,13 +88,19 @@ export function SkillProgressCard({
                   >
                     <Defs>
                       <Pattern
-                        id={`diagonalStripes-${index}`}
+                        id={`linePattern-${index}`}
                         patternUnits="userSpaceOnUse"
-                        width="5"
-                        height="4"
-                        patternTransform="rotate(1)"
+                        width="42"
+                        height="5"
                       >
-                        <Rect x="0" y="0" width="1" height="4" fill="#1E3A5F" />
+                        <Line
+                          x1="42"
+                          y1="0"
+                          x2="0"
+                          y2="4"
+                          stroke="#1C274C"
+                          strokeWidth="1"
+                        />
                       </Pattern>
                     </Defs>
                     <Rect
@@ -102,7 +108,7 @@ export function SkillProgressCard({
                       y="0"
                       width="42"
                       height="100%"
-                      fill={`url(#diagonalStripes-${index})`}
+                      fill={`url(#linePattern-${index})`}
                       rx="16"
                       ry="16"
                     />

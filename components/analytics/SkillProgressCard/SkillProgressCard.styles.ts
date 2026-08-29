@@ -117,15 +117,16 @@ export const styles = StyleSheet.create({
   chartDaysRow: {
     flexDirection: "row",
     justifyContent: "space-between",
-    // paddingHorizontal: 12,
     gap: 9,
   },
   chartDayText: {
     fontSize: 12,
     fontFamily: typography.fonts.medium,
     color: "#010000",
+
     flex: 1,
     textAlign: "center",
+    paddingBottom: 7,
   },
   stripedPattern: {
     position: "absolute",
