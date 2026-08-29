@@ -23,6 +23,11 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  letterIconText: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: colors.primary,
+  },
   metaTags: {
     flexDirection: "row",
     gap: 2,
@@ -89,5 +94,8 @@ export const styles = StyleSheet.create({
     backgroundColor: colors.surface,
     alignItems: "center",
     justifyContent: "center",
+  },
+  playIconInner: {
+    marginLeft: 3,
   },
 });

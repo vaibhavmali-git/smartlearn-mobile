@@ -43,6 +43,9 @@ export const styles = StyleSheet.create({
     fontFamily: typography.fonts.semiBold,
     color: "#073647",
   },
+  filtersScrollView: {
+    flexGrow: 0,
+  },
   filtersRow: {
     flexDirection: "row",
     marginBottom: 18,

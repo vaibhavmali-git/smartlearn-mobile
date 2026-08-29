@@ -28,15 +28,7 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
       <View style={styles.header}>
         <View style={styles.iconBadge}>
           {lesson.categoryId === "letters" ? (
-            <Text
-              style={{
-                fontSize: 20,
-                fontWeight: "bold",
-                color: colors.primary,
-              }}
-            >
-              Aa
-            </Text>
+            <Text style={styles.letterIconText}>Aa</Text>
           ) : (
             <Ionicons name={lesson.iconName} size={24} />
           )}
@@ -75,7 +67,7 @@ export function LessonCard({ lesson, onPress }: LessonCardProps) {
             name="play"
             size={16}
             color={colors.primary}
-            style={{ marginLeft: 3 }}
+            style={styles.playIconInner}
           />
         </View>
       </BlurView>

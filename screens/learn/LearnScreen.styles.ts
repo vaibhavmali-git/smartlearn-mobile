@@ -6,6 +6,21 @@ export const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.surface,
   },
+  loadingContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  emptyStateContainer: {
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
+  emptyStateText: {
+    fontFamily: "Inter_700Bold",
+    fontSize: 20,
+    color: colors.primary,
+    marginBottom: 20,
+  },
   listContainer: {
     paddingTop: 20,
     paddingBottom: 40,

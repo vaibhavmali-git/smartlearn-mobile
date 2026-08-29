@@ -35,7 +35,7 @@ export function SkillProgressCard({
       <ScrollView
         horizontal
         showsHorizontalScrollIndicator={false}
-        style={{ flexGrow: 0 }}
+        contentContainerStyle={styles.filtersScrollView}
       >
         <View style={styles.filtersRow}>
           {categories.map((cat) => {

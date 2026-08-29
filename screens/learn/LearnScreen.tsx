@@ -25,15 +25,7 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
 
   if (isLoading) {
     return (
-      <View
-        style={[
-          styles.container,
-          {
-            justifyContent: "center",
-            alignItems: "center",
-          },
-        ]}
-      >
+      <View style={[styles.container, styles.loadingContainer]}>
         <ActivityIndicator size="large" color={colors.primary} />
       </View>
     );
@@ -41,26 +33,8 @@ export function LearnScreen({ lessonId }: LearnScreenProps) {
 
   if (!course) {
     return (
-      <View
-        style={[
-          styles.container,
-          {
-            justifyContent: "center",
-            alignItems: "center",
-            padding: 20,
-          },
-        ]}
-      >
-        <Text
-          style={{
-            fontFamily: "Inter_700Bold",
-            fontSize: 20,
-            color: colors.primary,
-            marginBottom: 20,
-          }}
-        >
-          Course not found
-        </Text>
+      <View style={[styles.container, styles.emptyStateContainer]}>
+        <Text style={styles.emptyStateText}>Course not found</Text>
 
         <Button title="Go Back" onPress={() => router.back()} />
       </View>
