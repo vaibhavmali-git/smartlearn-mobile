@@ -1,12 +1,8 @@
 import { Category } from "@/data/lessons";
 import { colors } from "@/theme";
-import {
-    PaintBoardIcon,
-    PawPrintIcon,
-    ShapesIcon,
-    TextFontIcon,
-} from "@hugeicons/core-free-icons";
+import { PawPrintIcon, ShapesIcon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react-native";
+import { Image } from "expo-image";
 import React from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import { styles } from "./CategoryFilter.styles";
@@ -27,21 +23,19 @@ const getCategoryIcon = (id: string, isActive: boolean) => {
   switch (id) {
     case "letters":
       return (
-        <HugeiconsIcon
-          icon={TextFontIcon}
-          size={18}
-          color={color}
-          strokeWidth={3}
+        <Image
+          source={require("@/assets/icons/logo-letters.png")}
+          style={{ width: 18, height: 18, tintColor: color }}
+          contentFit="contain"
         />
       );
 
     case "colors":
       return (
-        <HugeiconsIcon
-          icon={PaintBoardIcon}
-          size={18}
-          color={color}
-          strokeWidth={2}
+        <Image
+          source={require("@/assets/icons/logo-paintboard.png")}
+          style={{ width: 18, height: 18, tintColor: color }}
+          contentFit="contain"
         />
       );
 
