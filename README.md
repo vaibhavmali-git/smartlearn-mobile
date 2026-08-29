@@ -10,11 +10,17 @@ Here is a quick look at the app and its main flows:
 
 Below are the core screens implemented based on the provided design specifications:
 
-| :---: | :---: | :---: |
-| <img src="./docs/onboarding.png" width="250" /> | <img src="./docs/home.png" width="250" /> | <img src="./docs/learn-screen.png" width="250" /> |
+<p align="center">
+  <img src="./docs/onboarding.png" width="250" />
+  <img src="./docs/home.png" width="250" />
+  <img src="./docs/learn-screen.png" width="250" />
+</p>
 
-| :---: | :---: | :---: |
-| <img src="./docs/analytics-screen.png" width="250" /> | <img src="./docs/aibuddy-screen.png" width="250" /> | <img src="./docs/profile-screen.png" width="250" /> |
+<p align="center">
+  <img src="./docs/analytics-screen.png" width="250" />
+  <img src="./docs/aibuddy-screen.png" width="250" />
+  <img src="./docs/profile-screen.png" width="250" />
+</p>
 
 ## How to Run the Project Locally
 
