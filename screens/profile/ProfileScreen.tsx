@@ -4,29 +4,28 @@ import { ScreenContainer } from "@/components/common/ScreenContainer";
 import { ProfileHeader } from "@/components/profile/ProfileHeader/ProfileHeader";
 import { SettingRow } from "@/components/profile/SettingRow/SettingRow";
 import { useAuth } from "@/hooks/useAuth";
+import { useProfileEditor } from "@/hooks/useProfileEditor";
 import { colors } from "@/theme";
 import { Ionicons } from "@expo/vector-icons";
-import { useRouter } from "expo-router";
-import React, { useState } from "react";
+import React from "react";
 import { Modal, ScrollView, Text, View } from "react-native";
 import { styles } from "./ProfileScreen.styles";
 
 export function ProfileScreen() {
   const { user, logout, updateUser } = useAuth();
-  const router = useRouter();
-  const [isEditModalVisible, setIsEditModalVisible] = useState(false);
-  const [editNameValue, setEditNameValue] = useState("");
-
-  const handleOpenEdit = () => {
-    setEditNameValue(user?.name || "");
-    setIsEditModalVisible(true);
-  };
+  const {
+    isEditModalVisible,
+    editNameValue,
+    setEditNameValue,
+    openEdit,
+    closeEdit,
+  } = useProfileEditor(user?.name);
 
   const handleSaveName = async () => {
     if (editNameValue.trim()) {
       await updateUser({ name: editNameValue.trim() });
     }
-    setIsEditModalVisible(false);
+    closeEdit();
   };
 
   return (
@@ -53,7 +52,7 @@ export function ProfileScreen() {
           <SettingRow
             icon="person-outline"
             label="Personal Information"
-            onPress={handleOpenEdit}
+            onPress={openEdit}
           />
           <SettingRow
             icon="bar-chart-outline"
@@ -93,7 +92,7 @@ export function ProfileScreen() {
               <Button
                 title="Cancel"
                 variant="ghost"
-                onPress={() => setIsEditModalVisible(false)}
+                onPress={closeEdit}
                 size="sm"
               />
               <Button

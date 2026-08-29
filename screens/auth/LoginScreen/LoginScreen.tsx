@@ -2,10 +2,10 @@ import { Button } from "@/components/common/Button";
 import { Input } from "@/components/common/Input";
 import { ScreenContainer } from "@/components/common/ScreenContainer";
 import { useAuth } from "@/hooks/useAuth";
-import { validateLoginForm } from "@/utils/validation";
+import { useLoginForm } from "@/hooks/useLoginForm";
 import { ArrowLeft02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react-native";
-import React, { useState } from "react";
+import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { styles } from "./LoginScreen.styles";
 
@@ -19,31 +19,8 @@ export function LoginScreen({
   onNavigateToSignUp,
 }: LoginScreenProps) {
   const { login } = useAuth();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleLogin = async () => {
-    const validationErrors = validateLoginForm({ email, password });
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
-
-    try {
-      setIsLoading(true);
-      await login({ email, password });
-    } catch (error) {
-      setErrors({
-        email: "Failed to log in. Please check your credentials.",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const { email, password, errors, isLoading, updateField, handleSubmit } =
+    useLoginForm(login);
 
   return (
     <ScreenContainer scrollable backgroundColor="#FFFFFF">
@@ -75,16 +52,7 @@ export function LoginScreen({
               <Input
                 placeholder="Enter your email address.."
                 value={email}
-                onChangeText={(text) => {
-                  setEmail(text);
-
-                  if (errors.email) {
-                    setErrors((prev) => ({
-                      ...prev,
-                      email: "",
-                    }));
-                  }
-                }}
+                onChangeText={(text) => updateField("email", text)}
                 autoCapitalize="none"
                 keyboardType="email-address"
                 error={errors.email}
@@ -95,16 +63,7 @@ export function LoginScreen({
               <Input
                 placeholder="Enter your password.."
                 value={password}
-                onChangeText={(text) => {
-                  setPassword(text);
-
-                  if (errors.password) {
-                    setErrors((prev) => ({
-                      ...prev,
-                      password: "",
-                    }));
-                  }
-                }}
+                onChangeText={(text) => updateField("password", text)}
                 secureTextEntry
                 error={errors.password}
               />
@@ -114,7 +73,7 @@ export function LoginScreen({
               title="Sign In"
               variant="primary"
               loading={isLoading}
-              onPress={handleLogin}
+              onPress={handleSubmit}
               style={styles.submitButton}
             />
           </View>

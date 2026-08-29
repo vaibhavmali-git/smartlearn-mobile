@@ -2,10 +2,10 @@ import { Button } from "@/components/common/Button";
 import { Input } from "@/components/common/Input";
 import { ScreenContainer } from "@/components/common/ScreenContainer";
 import { useAuth } from "@/hooks/useAuth";
-import { validateSignUpForm } from "@/utils/validation";
+import { useSignUpForm } from "@/hooks/useSignUpForm";
 import { ArrowLeft02Icon } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react-native";
-import React, { useState } from "react";
+import React from "react";
 import { Pressable, Text, View } from "react-native";
 import { styles } from "./SignUpScreen.styles";
 
@@ -19,44 +19,16 @@ export function SignUpScreen({
   onNavigateToLogin,
 }: SignUpScreenProps) {
   const { signUp } = useAuth();
-
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errors, setErrors] = useState<Record<string, string>>({});
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSignUp = async () => {
-    const validationErrors = validateSignUpForm({
-      name,
-      email,
-      password,
-      confirmPassword,
-    });
-
-    setErrors(validationErrors);
-
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
-
-    try {
-      setIsLoading(true);
-      await signUp({
-        name,
-        email,
-        password,
-        confirmPassword,
-      });
-    } catch (error) {
-      setErrors({
-        email: "Failed to create an account. Please try again.",
-      });
-    } finally {
-      setIsLoading(false);
-    }
-  };
+  const {
+    name,
+    email,
+    password,
+    confirmPassword,
+    errors,
+    isLoading,
+    updateField,
+    handleSubmit,
+  } = useSignUpForm(signUp);
 
   return (
     <ScreenContainer scrollable backgroundColor="#FFFFFF">
@@ -86,16 +58,7 @@ export function SignUpScreen({
               <Input
                 placeholder="Enter your name"
                 value={name}
-                onChangeText={(text) => {
-                  setName(text);
-
-                  if (errors.name) {
-                    setErrors((prev) => ({
-                      ...prev,
-                      name: "",
-                    }));
-                  }
-                }}
+                onChangeText={(text) => updateField("name", text)}
                 error={errors.name}
               />
             </View>
@@ -104,16 +67,7 @@ export function SignUpScreen({
               <Input
                 placeholder="Enter email address"
                 value={email}
-                onChangeText={(text) => {
-                  setEmail(text);
-
-                  if (errors.email) {
-                    setErrors((prev) => ({
-                      ...prev,
-                      email: "",
-                    }));
-                  }
-                }}
+                onChangeText={(text) => updateField("email", text)}
                 autoCapitalize="none"
                 keyboardType="email-address"
                 error={errors.email}
@@ -124,16 +78,7 @@ export function SignUpScreen({
               <Input
                 placeholder="Create password"
                 value={password}
-                onChangeText={(text) => {
-                  setPassword(text);
-
-                  if (errors.password) {
-                    setErrors((prev) => ({
-                      ...prev,
-                      password: "",
-                    }));
-                  }
-                }}
+                onChangeText={(text) => updateField("password", text)}
                 secureTextEntry
                 error={errors.password}
               />
@@ -143,16 +88,9 @@ export function SignUpScreen({
               <Input
                 placeholder="Confirm password"
                 value={confirmPassword}
-                onChangeText={(text) => {
-                  setConfirmPassword(text);
-
-                  if (errors.confirmPassword) {
-                    setErrors((prev) => ({
-                      ...prev,
-                      confirmPassword: "",
-                    }));
-                  }
-                }}
+                onChangeText={(text) =>
+                  updateField("confirmPassword", text)
+                }
                 secureTextEntry
                 error={errors.confirmPassword}
               />
@@ -162,7 +100,7 @@ export function SignUpScreen({
               title="Sign Up"
               variant="primary"
               loading={isLoading}
-              onPress={handleSignUp}
+              onPress={handleSubmit}
               style={styles.submitButton}
             />
           </View>
