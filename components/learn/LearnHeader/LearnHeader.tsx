@@ -1,6 +1,8 @@
 import { LearningProgressCard } from "@/components/learn/LearningProgressCard/LearningProgressCard";
 import { colors, spacing } from "@/theme";
 import { Ionicons } from "@expo/vector-icons";
+import { ArrowLeft02Icon } from "@hugeicons/core-free-icons";
+import { HugeiconsIcon } from "@hugeicons/react-native";
 import { BlurView } from "expo-blur";
 import { Image } from "expo-image";
 import { useRouter } from "expo-router";
@@ -42,7 +44,12 @@ export function LearnHeader({
       ]}
     >
       <Pressable style={styles.backButton} onPress={() => router.back()}>
-        <Ionicons name="arrow-back" size={24} />
+        <HugeiconsIcon
+          icon={ArrowLeft02Icon}
+          size={24}
+          color="#010000"
+          strokeWidth={2}
+        />
       </Pressable>
 
       <Text style={styles.subtitle}>{subtitle}</Text>

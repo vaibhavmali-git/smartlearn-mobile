@@ -15,7 +15,7 @@ export function OnboardingScreen({
   onNavigateToLogin,
 }: OnboardingScreenProps) {
   return (
-    <ScreenContainer scrollable={false} backgroundColor="#FFFFFF">
+    <ScreenContainer style={styles.screenContainer}>
       <View style={styles.container}>
         <View style={styles.header}>
           <Image

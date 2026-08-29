@@ -5,6 +5,7 @@ import { useLessonProgress } from "@/hooks/useLessonProgress";
 import { colors } from "@/theme";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
+
 import React from "react";
 import {
     ActivityIndicator,

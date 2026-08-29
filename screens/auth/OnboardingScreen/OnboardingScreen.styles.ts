@@ -14,6 +14,8 @@ export const styles = StyleSheet.create({
     minHeight: 770,
   },
 
+  screenContainer: { backgroundColor: "#FFFFFF" },
+
   header: {
     alignItems: "center",
     position: "relative",
